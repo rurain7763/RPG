@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6caa38e378973bd48870d54c90e28387, type: 3}
+  m_Name: Blacksmith
+  m_EditorClassIdentifier: 
+  Speaker: {fileID: 11400000, guid: 79722bb4f10088c41b1ce974157c1a96, type: 2}
+  Dialogues:
+  - Stay awhile and listen to my stories.
+  - Have you heard the latest news from the capital?
+  - Be careful out there, monsters have been spotted nearby.
+  - Hello there, traveler!
+  - The stars are particularly bright tonight.
+  - Be careful out there, monsters have been spotted nearby.
+  - The weather is nice today, isn't it?
+  - May your journey be safe and prosperous!
+  - Be careful out there, monsters have been spotted nearby.
+  - Have you heard the latest news from the capital?

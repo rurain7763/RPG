@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9bd6f8ff5d831f42becd3ba181b1421, type: 3}
+  m_Name: ItemMerchantData
+  m_EditorClassIdentifier: 
+  randomDataEntries:
+  - itemData: {fileID: 11400000, guid: 2545cfd7e1ddaa742810ed187810e2e6, type: 2}
+    weight: 1
+  - itemData: {fileID: 11400000, guid: 1188c0538198e7744b26d5ffaa57fd7b, type: 2}
+    weight: 5
+  - itemData: {fileID: 11400000, guid: a3bc4be0fd9697e4d95aa2d38673b7df, type: 2}
+    weight: 1
+  - itemData: {fileID: 11400000, guid: 5553bcd5a1ae4aa4da53a91de4b31cf9, type: 2}
+    weight: 2
+  - itemData: {fileID: 11400000, guid: 272816f442913824c8150ee9f64fa161, type: 2}
+    weight: 1
+  - itemData: {fileID: 11400000, guid: 25798b0e55662a742a754ddec41feb21, type: 2}
+    weight: 1
+  - itemData: {fileID: 11400000, guid: bc5520bac425f7d4e98985da58519c95, type: 2}
+    weight: 20
+  - itemData: {fileID: 11400000, guid: 2545cfd7e1ddaa742810ed187810e2e6, type: 2}
+    weight: 1
+  priceEntries:
+  - ItemData: {fileID: 11400000, guid: 2545cfd7e1ddaa742810ed187810e2e6, type: 2}
+    BuyPrice: 100
+    SellPrice: 100
+  - ItemData: {fileID: 11400000, guid: 1188c0538198e7744b26d5ffaa57fd7b, type: 2}
+    BuyPrice: 100
+    SellPrice: 100
+  - ItemData: {fileID: 11400000, guid: a3bc4be0fd9697e4d95aa2d38673b7df, type: 2}
+    BuyPrice: 100
+    SellPrice: 100
+  - ItemData: {fileID: 11400000, guid: 5553bcd5a1ae4aa4da53a91de4b31cf9, type: 2}
+    BuyPrice: 100
+    SellPrice: 100
+  - ItemData: {fileID: 11400000, guid: 272816f442913824c8150ee9f64fa161, type: 2}
+    BuyPrice: 100
+    SellPrice: 100
+  - ItemData: {fileID: 11400000, guid: 25798b0e55662a742a754ddec41feb21, type: 2}
+    BuyPrice: 100
+    SellPrice: 100
+  - ItemData: {fileID: 11400000, guid: bc5520bac425f7d4e98985da58519c95, type: 2}
+    BuyPrice: 100
+    SellPrice: 100
+  - ItemData: {fileID: 11400000, guid: 98af7472554d22043b0bb5025c92f30d, type: 2}
+    BuyPrice: 100
+    SellPrice: 100

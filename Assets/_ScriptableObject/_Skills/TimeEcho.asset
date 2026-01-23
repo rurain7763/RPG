@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a302905c086e7848a5992333293b999, type: 3}
+  m_Name: TimeEcho
+  m_EditorClassIdentifier: 
+  ID:
+    value: 9951258271941493206
+  DisplayName: Time Echo
+  Description: ...
+  Icon: {fileID: 5559745257100799005, guid: 5ffe8d75d1ad740418e8f479f7f55aba, type: 3}
+  Category: 0
+  BaseCooldown: 7
+  EchoPrefab: {fileID: 1330601167484773638, guid: 27c7e33ab11acf24dbce801a366c7ba3, type: 3}
+  EchoDuration: 5
+  MaxEchoAttackCount: 3
+  ChanceToDuplicate: 0.3
+  HealingWispPrefab: {fileID: 7727798709139646077, guid: 066439dc2ee819f4592feec808e9528f, type: 3}
+  CooldownWispPrefab: {fileID: 7727798709139646077, guid: 773a00adcda281545812a66761c3ebd9, type: 3}
+  CleanseWispPrefab: {fileID: 7727798709139646077, guid: 009729911d9503d4584956daf07b6b16, type: 3}

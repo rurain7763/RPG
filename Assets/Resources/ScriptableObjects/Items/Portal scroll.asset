@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17f99645d58c44469c82c10bdc79fdc, type: 3}
+  m_Name: Portal scroll
+  m_EditorClassIdentifier: 
+  ID:
+    value: 5587570242800384396
+  DisplayName: Portal scroll
+  Description: ...
+  Icon: {fileID: -4751428667779472978, guid: 5ffe8d75d1ad740418e8f479f7f55aba, type: 3}
+  MaxStackSize: 5
+  Effects:
+  - rid: 1306544876442353834
+  references:
+    version: 2
+    RefIds:
+    - rid: 1306544876442353834
+      type: {class: SpawnPortalItemEffectData, ns: , asm: Assembly-CSharp}
+      data: 

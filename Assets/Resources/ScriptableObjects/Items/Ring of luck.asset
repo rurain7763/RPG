@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c871a2ea421d65408c14d69c6b81843, type: 3}
+  m_Name: Ring of luck
+  m_EditorClassIdentifier: 
+  ID:
+    value: 13462307814194818496
+  DisplayName: Ring of luck
+  Description: ...
+  Icon: {fileID: -5893210615866333270, guid: 5ffe8d75d1ad740418e8f479f7f55aba, type: 3}
+  MaxStackSize: 1
+  EquipmentCategory: 2
+  StatModifiers:
+  - StatData: {fileID: 11400000, guid: f55b3105de8e2254c925ee70e3328490, type: 2}
+    ModifierData:
+      rid: 6168998144652083300
+  - StatData: {fileID: 11400000, guid: 8543f9c15d101a842919bd07f78c3951, type: 2}
+    ModifierData:
+      rid: 6168998144652083301
+  UniqueEffect:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 6168998144652083300
+      type: {class: AddValueModifierData, ns: , asm: Common}
+      data:
+        Value: 0
+    - rid: 6168998144652083301
+      type: {class: AddValueModifierData, ns: , asm: Common}
+      data:
+        Value: 0

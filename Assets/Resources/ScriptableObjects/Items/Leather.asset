@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9792a1d365ba8f4f8a5e77c26f23877, type: 3}
+  m_Name: Leather
+  m_EditorClassIdentifier: 
+  ID:
+    value: 18172618751476344206
+  DisplayName: Leather
+  Description: ...
+  Icon: {fileID: -7913775737931201815, guid: 5ffe8d75d1ad740418e8f479f7f55aba, type: 3}
+  MaxStackSize: 99

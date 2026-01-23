@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9792a1d365ba8f4f8a5e77c26f23877, type: 3}
+  m_Name: Wooden log
+  m_EditorClassIdentifier: 
+  ID:
+    value: 9488449478141946148
+  DisplayName: Wooden log
+  Description: ...
+  Icon: {fileID: -6765587114449210688, guid: a68d8ac5c677c1d4aa09055597852c97, type: 3}
+  MaxStackSize: 99

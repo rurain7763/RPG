@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff84c9708802d8347bb1dc82b357b879, type: 3}
+  m_Name: Jhon
+  m_EditorClassIdentifier: 
+  id:
+    value: 5067581021006330525
+  alias: Jhon
+  displayName: Jhon
+  portraits:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: -3741002040469782287, guid: 5ffe8d75d1ad740418e8f479f7f55aba, type: 3}

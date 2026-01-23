@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c871a2ea421d65408c14d69c6b81843, type: 3}
+  m_Name: Dracular's Fang
+  m_EditorClassIdentifier: 
+  ID:
+    value: 4182753695955064231
+  DisplayName: Dracular's Fang
+  Description: ...
+  Icon: {fileID: -950096140469595123, guid: a68d8ac5c677c1d4aa09055597852c97, type: 3}
+  MaxStackSize: 1
+  EquipmentCategory: 0
+  StatModifiers:
+  - StatData: {fileID: 11400000, guid: 2d394157971735c46bce19d4df919479, type: 2}
+    ModifierData:
+      rid: 6168998144652083297
+  - StatData: {fileID: 11400000, guid: ec5681ce6cb2623499ac0f11bf4ad981, type: 2}
+    ModifierData:
+      rid: 6168998144652083298
+  UniqueEffect:
+    rid: 1306544539357413576
+  references:
+    version: 2
+    RefIds:
+    - rid: 1306544539357413576
+      type: {class: DrainDamageItemEffectData, ns: , asm: Assembly-CSharp}
+      data:
+        DrainRate: 0.01
+    - rid: 6168998144652083297
+      type: {class: AddValueModifierData, ns: , asm: Common}
+      data:
+        Value: 0
+    - rid: 6168998144652083298
+      type: {class: AddValueModifierData, ns: , asm: Common}
+      data:
+        Value: 0

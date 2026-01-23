@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17f99645d58c44469c82c10bdc79fdc, type: 3}
+  m_Name: Scroll of vengence
+  m_EditorClassIdentifier: 
+  ID:
+    value: 7550986058788190661
+  DisplayName: Scroll of vengence
+  Description: +40% increase damage and +15% attack speed, 20 seconds
+  Icon: {fileID: 7613968077380885141, guid: 5ffe8d75d1ad740418e8f479f7f55aba, type: 3}
+  MaxStackSize: 99
+  Effects:
+  - rid: 1306544539357413543
+  - rid: 1306544539357413536
+  references:
+    version: 2
+    RefIds:
+    - rid: 1306544539357413536
+      type: {class: ApplyBuffItemEffectData, ns: , asm: Assembly-CSharp}
+      data:
+        BuffData:
+          rid: 1306544539357413546
+    - rid: 1306544539357413543
+      type: {class: ApplyBuffItemEffectData, ns: , asm: Assembly-CSharp}
+      data:
+        BuffData:
+          rid: 1306544539357413545
+    - rid: 1306544539357413545
+      type: {class: IncreaseAttackSpeedData, ns: , asm: Assembly-CSharp}
+      data:
+        AttackSpeedIncreasePercentage: 0.15
+        Duration: 20
+    - rid: 1306544539357413546
+      type: {class: IncreaseDamageData, ns: , asm: Assembly-CSharp}
+      data:
+        DamageIncreasePercentage: 0.4
+        Duration: 20

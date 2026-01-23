@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c87061b9c18914393d546aec2f99bf, type: 3}
+  m_Name: ThrowSword
+  m_EditorClassIdentifier: 
+  ID:
+    value: 5857787689305698528
+  DisplayName: Throw sword
+  Description: ...
+  Icon: {fileID: 4292991442675503664, guid: 5ffe8d75d1ad740418e8f479f7f55aba, type: 3}
+  Category: 0
+  BaseCooldown: 0
+  SwordPrefab: {fileID: 3284297747696495919, guid: f23254a6541969f4e8fb9dde9d25243f, type: 3}
+  ThrowForce: 30
+  PierceCount: 2
+  MaxThrowDistance: 5
+  SpinDuration: 2
+  BounceCount: 3
+  TrajectoryDotPrefab: {fileID: 8825421227486807574, guid: 06f70d3f4265cc5489b7c78cd1339782, type: 3}
+  TrajectoryDotCount: 10

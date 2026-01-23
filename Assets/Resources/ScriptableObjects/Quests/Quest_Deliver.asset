@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163f9a775e2c9014dab684f4d451be2e, type: 3}
+  m_Name: Quest_Deliver
+  m_EditorClassIdentifier: 
+  ID:
+    value: 3555651423157362242
+  DisplayName: Deliver
+  Description: Deliver potion to my friend, please!
+  Policy: 0
+  Prerequisites: []
+  Steps:
+  - rid: 6168998190875148382
+  CompletionRewards:
+  - rid: 6168998121975054490
+  references:
+    version: 2
+    RefIds:
+    - rid: 6168998121975054490
+      type: {class: ItemQuestReward, ns: , asm: Assembly-CSharp}
+      data:
+        itemData: {fileID: 11400000, guid: 187458c70a682894b82dc099bc98506e, type: 2}
+        quantity: 5
+    - rid: 6168998190875148382
+      type: {class: DeliverItemToQuestStepData, ns: , asm: Assembly-CSharp}
+      data:
+        Description: Deliver small health potion
+        Item: {fileID: 11400000, guid: bc5520bac425f7d4e98985da58519c95, type: 2}
+        Quantity: 1
+        TargetID:
+          value: 4852954157021330844
