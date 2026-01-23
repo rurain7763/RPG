@@ -101,3 +101,7 @@ InitTestScene*.unity*
 # Windows reserved names
 nul
 nul.meta
+
+# Markdown files (except README)
+*.md
+!README.md
