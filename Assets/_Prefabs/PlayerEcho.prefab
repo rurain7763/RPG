@@ -84,10 +84,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allyMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   enemyMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   maxHealth: 0
   currentHealth: 0
 --- !u!114 &8855427531069689038

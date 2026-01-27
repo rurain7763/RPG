@@ -32,7 +32,7 @@ public class EchoIdle : EchoState
         {
             stateMachine.ChangeState<EchoFall>();
         }
-        else
+        else if (echo.RemainAttackCount > 0)
         {
             stateMachine.ChangeState<EchoAttack>();
         }

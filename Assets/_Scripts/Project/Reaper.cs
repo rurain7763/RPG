@@ -83,8 +83,7 @@ public class Reaper : AICharacter
         SkillSystem.Begin();
         foreach (var skill in SkillSystem.Skills)
         {
-            var rpgSkill = skill as RPGSkill;
-            rpgSkill.AddUpgrade(SkillUpgradeFlag.Default);
+            skill.AddUpgrade(SkillUpgradeCommonFlag.Default);
         }
 
         CombatSystem.ActiveKnockbackImmunity = true;

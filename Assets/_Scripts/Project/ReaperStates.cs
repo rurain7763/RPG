@@ -113,8 +113,6 @@ public class ReaperFallState : AICharacterFallState
 
 public class ReaperChaseState : AICharacterChaseState
 {
-    protected override float lostTargetTime => base.lostTargetTime * 5.0f;
-
     public ReaperChaseState(Reaper character)
         : base(character)
     {

@@ -213,22 +213,18 @@ public abstract class AICharacterMoveState : AICharacterState
 public abstract class AICharacterChaseState : AICharacterState
 {
     private const float MoveSpeedFactor = 2.0f;
-    private const float NearbyRadius = 2.0f;
-    protected virtual float lostTargetTime { get; } = 3.0f;
-
-    private float lostTargetRemainTime;
 
     public AICharacterChaseState(AICharacter character) : base(character) { }
 
     public override void Enter()
     {
         character.Animator.Play(MoveAnimHash);
-        lostTargetRemainTime = lostTargetTime;
     }
 
     public override void Execute()
     {
         float moveSpeed = character.MoveSpeed * MoveSpeedFactor;
+        character.Animator.SetFloat(MoveAnimSpeedFactorHash, moveSpeed / character.DefaultMoveSpeed);
 
         if (character.Target == null || (character.Target is ICombatable combatable && combatable.CombatSystem.IsDead))
         {
@@ -237,23 +233,32 @@ public abstract class AICharacterChaseState : AICharacterState
             return;
         }
 
-        character.LookAt(character.Target.CenterPosition);
-
-        character.Animator.SetFloat(MoveAnimSpeedFactorHash, moveSpeed / character.DefaultMoveSpeed);
-
-        if (character.IsEnemyInAttackRange(character.Target))
+        if (character.TryGetEnemyInVision(out Entity target))
         {
-            ChangeToAttackState();
+            character.Target = target;
         }
-        else if (character.IsEnemyNearby(NearbyRadius, character.Target))
+
+        if (character.IsEnemyNearby(character.VisionRange + 0.05f, character.Target))
         {
-            character.Rigidbody.linearVelocity = new Vector2(moveSpeed * character.FacingDirection, character.Rigidbody.linearVelocity.y);
-            lostTargetRemainTime = lostTargetTime;
-        }
-        else if (lostTargetRemainTime > 0)
-        {
-            character.Rigidbody.linearVelocity = new Vector2(moveSpeed * character.FacingDirection, character.Rigidbody.linearVelocity.y);
-            lostTargetRemainTime -= Time.deltaTime;
+            if (character.IsEnemyTooHight(character.Target))
+            {
+                character.LookAt(character.Target.CenterPosition);
+                character.Target = null;
+                ChangeToIdleState();
+            }
+            else if (character.IsEnemyTooLow(character.Target))
+            {
+                character.Rigidbody.linearVelocity = new Vector2(moveSpeed * character.FacingDirection, character.Rigidbody.linearVelocity.y);
+            }
+            else if (character.IsEnemyInAttackRange(character.Target))
+            {
+                ChangeToAttackState();
+            }
+            else
+            {
+                character.LookAt(character.Target.CenterPosition);
+                character.Rigidbody.linearVelocity = new Vector2(moveSpeed * character.FacingDirection, character.Rigidbody.linearVelocity.y);
+            }
         }
         else
         {

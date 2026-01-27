@@ -1,0 +1,153 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8518b2b71e7b73145802657da6538133, type: 3}
+  m_Name: _SkillTreeBuilder
+  m_EditorClassIdentifier: 
+  AllNodes:
+  - Skill: {fileID: 11400000, guid: 6746a04a3b8442f408b16734067f87f6, type: 2}
+    Certificate:
+      rid: 6168998482154094693
+    ParentIndices: 
+    ChildIndices: 0100000003000000
+    Position: {x: 246, y: 290}
+  - Skill: {fileID: 11400000, guid: 2cc8bb636343b9e4aa6e251bd2905ee9, type: 2}
+    Certificate:
+      rid: 6168998482154094695
+    ParentIndices: 00000000
+    ChildIndices: 02000000
+    Position: {x: 536, y: 424}
+  - Skill: {fileID: 11400000, guid: 63ead16f0da07234286ecc15bccc68d1, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 01000000
+    ChildIndices: 
+    Position: {x: 839, y: 423}
+  - Skill: {fileID: 11400000, guid: 36d0718b5845bb7468e4f2dcdf90e170, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 00000000
+    ChildIndices: 04000000
+    Position: {x: 536, y: 163}
+  - Skill: {fileID: 11400000, guid: ab7f58ece85e3bf42b7533973f981b45, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 03000000
+    ChildIndices: 
+    Position: {x: 840, y: 163}
+  - Skill: {fileID: 11400000, guid: b7c9a0f0c91cdb34dbda7785586a0a97, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 
+    ChildIndices: 0600000009000000
+    Position: {x: 247, y: 745}
+  - Skill: {fileID: 11400000, guid: 066f299606a5a48418aef1fc09e41884, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 05000000
+    ChildIndices: 07000000
+    Position: {x: 534, y: 635}
+  - Skill: {fileID: 11400000, guid: f5397e74c09fd0e4abe19f6ced23342a, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 06000000
+    ChildIndices: 
+    Position: {x: 844, y: 637}
+  - Skill: {fileID: 11400000, guid: 49be5287ecb6bea48b461ff90a09ee86, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 09000000
+    ChildIndices: 
+    Position: {x: 840, y: 910}
+  - Skill: {fileID: 11400000, guid: 1f9e1e00da1fea6409ac35c17e004a26, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 05000000
+    ChildIndices: 08000000
+    Position: {x: 540, y: 909}
+  - Skill: {fileID: 11400000, guid: 631ad8d0f8023244ba57a76559174dab, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 
+    ChildIndices: 0b0000000c0000000d000000
+    Position: {x: 223, y: 1309}
+  - Skill: {fileID: 11400000, guid: 1800af71a79e2204fa31be1be938871d, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 0a000000
+    ChildIndices: 
+    Position: {x: 540, y: 1111}
+  - Skill: {fileID: 11400000, guid: 2894218cb2eaf1f428bcbf38807326f0, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 0a000000
+    ChildIndices: 
+    Position: {x: 540, y: 1308}
+  - Skill: {fileID: 11400000, guid: cba4d5b9af4f23247b64f8f6565f06ef, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 0a000000
+    ChildIndices: 
+    Position: {x: 544, y: 1493}
+  - Skill: {fileID: 11400000, guid: 001aa1d985606f846acc76858713dfe7, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 
+    ChildIndices: 0f00000012000000
+    Position: {x: 216, y: 1795}
+  - Skill: {fileID: 11400000, guid: c0802bee7f671fa42b761662e12491cc, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 0e000000
+    ChildIndices: 1000000011000000
+    Position: {x: 545, y: 1737}
+  - Skill: {fileID: 11400000, guid: 2a70d9fa244edd249bd1ba0065d62ff3, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 0f000000
+    ChildIndices: 
+    Position: {x: 914, y: 1716}
+  - Skill: {fileID: 11400000, guid: 81d0a496dfa7e7e499f26d9fd0fe647e, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 0f000000
+    ChildIndices: 
+    Position: {x: 919, y: 1898}
+  - Skill: {fileID: 11400000, guid: 3928c4da0be22cb4ca3875942a5fc96c, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 0e000000
+    ChildIndices: 1300000014000000
+    Position: {x: 574, y: 2095}
+  - Skill: {fileID: 11400000, guid: ce50d9ad86e25bf4b963a65dca69a0c5, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 12000000
+    ChildIndices: 
+    Position: {x: 915, y: 2098}
+  - Skill: {fileID: 11400000, guid: 8d3700445cc8265418ba42671d9c559c, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 12000000
+    ChildIndices: 
+    Position: {x: 909, y: 2292}
+  references:
+    version: 2
+    RefIds:
+    - rid: 6168998482154094693
+      type: {class: PlayerSkillCertificate, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 6168998482154094695
+      type: {class: PlayerSkillCertificate, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 6168998482154094705
+      type: {class: PlayerSkillCertificate, ns: , asm: Assembly-CSharp}
+      data: 

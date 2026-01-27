@@ -22,7 +22,7 @@ MonoBehaviour:
   EchoPrefab: {fileID: 1330601167484773638, guid: 27c7e33ab11acf24dbce801a366c7ba3, type: 3}
   EchoDuration: 5
   MaxEchoAttackCount: 3
-  ChanceToDuplicate: 0.3
+  ChanceToDuplicate: 0.6
   HealingWispPrefab: {fileID: 7727798709139646077, guid: 066439dc2ee819f4592feec808e9528f, type: 3}
   CooldownWispPrefab: {fileID: 7727798709139646077, guid: 773a00adcda281545812a66761c3ebd9, type: 3}
   CleanseWispPrefab: {fileID: 7727798709139646077, guid: 009729911d9503d4584956daf07b6b16, type: 3}

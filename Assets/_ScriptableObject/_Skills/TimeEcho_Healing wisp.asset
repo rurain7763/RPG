@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d14fed13559554c945dbf53426d9e5, type: 3}
+  m_Name: TimeEcho_Healing wisp
+  m_EditorClassIdentifier: 
+  ID:
+    value: 1986707604914493532
+  DisplayName: Healing wisp
+  Description: ...
+  Icon: {fileID: 5559745257100799005, guid: 5ffe8d75d1ad740418e8f479f7f55aba, type: 3}
+  Core: {fileID: 11400000, guid: 001aa1d985606f846acc76858713dfe7, type: 2}
+  UpgradeFlag: 16

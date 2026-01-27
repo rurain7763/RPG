@@ -31,7 +31,7 @@ public class TimeShard : RPGSkill, ICharagable
             skill.entity.transform.position = shardPosition;
             shard.transform.position = userPosition;
 
-            if (skill.HasUpgrade(SkillUpgradeFlag.TimeShard_TeleportHpRewind))
+            if (skill.HasUpgrade(TimeShardUpgradeFlag.TeleportHpRewind))
             {
                 if (skill.entity is ICombatable combatable)
                 {
@@ -87,14 +87,14 @@ public class TimeShard : RPGSkill, ICharagable
 
         OnUpgradeChanged += () =>
         {
-            if (HasUpgrade(SkillUpgradeFlag.TimeShard_Multicast))
+            if (HasUpgrade(TimeShardUpgradeFlag.Multicast))
             {
                 MaxCharge = UpgradeMuticastCount;
                 CurrentCharge = UpgradeMuticastCount;
                 OnChargeChanged?.Invoke();
             }
 
-            if (HasUpgrade(SkillUpgradeFlag.TimeShard_Teleport))
+            if (HasUpgrade(TimeShardUpgradeFlag.Teleport))
             {
                 MaxCharge = 1;
                 CurrentCharge = 1;
@@ -110,12 +110,12 @@ public class TimeShard : RPGSkill, ICharagable
         var shard = GameObject.Instantiate(Data.ShardPrefab, entity.CenterPosition, Quaternion.identity);
         shard.Owner = entity;
 
-        if (HasUpgrade(SkillUpgradeFlag.TimeShard_MoveToEnemey))
+        if (HasUpgrade(TimeShardUpgradeFlag.MoveToEnemey))
         {
             shard.MoveToClosestEnemy = true;
         }
 
-        if (HasUpgrade(SkillUpgradeFlag.TimeShard_Teleport))
+        if (HasUpgrade(TimeShardUpgradeFlag.Teleport))
         {
             shard.AutoExplode = false;
             AddSequence(new TeleportSequence(this, shard));

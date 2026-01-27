@@ -11,13 +11,6 @@ public class TimeEcho : RPGSkill
     public TimeEcho(SkillCoreData data) 
         : base(data)
     {
-        // TODO: Full unlock upgrade for test
-        AddUpgrade(SkillUpgradeFlag.Default 
-            | SkillUpgradeFlag.TimeEcho_ChanceToMultipleEchoes 
-            | SkillUpgradeFlag.TimeEcho_MultiAttack 
-            | SkillUpgradeFlag.TimeEcho_HealWisp
-            | SkillUpgradeFlag.TimeEcho_CooldownWisp
-            | SkillUpgradeFlag.TimeEcho_CleanseWisp);
     }
 
     public override void Tick(float delta)
@@ -38,7 +31,7 @@ public class TimeEcho : RPGSkill
         currentEcho.transform.position = user.transform.position;
         currentEcho.SetFacing(entity.IsFacingRight);
 
-        if (HasUpgrade(SkillUpgradeFlag.TimeEcho_ChanceToMultipleEchoes))
+        if (HasUpgrade(TimeEchoUpgradeFlag.ChanceToMultipleEchoes))
         {
             currentEcho.OnExpired += TryDuplicateEcho;
         }
@@ -50,17 +43,17 @@ public class TimeEcho : RPGSkill
         echo.Duration = Data.EchoDuration;
         echo.MaxAttackCount = 0;
 
-        if (HasUpgrade(SkillUpgradeFlag.TimeEcho_SingleAttack))
+        if (HasUpgrade(TimeEchoUpgradeFlag.SingleAttack))
         {
             echo.MaxAttackCount = 1;
         }
         
-        if (HasUpgrade(SkillUpgradeFlag.TimeEcho_MultiAttack))
+        if (HasUpgrade(TimeEchoUpgradeFlag.MultiAttack))
         {
             echo.MaxAttackCount = Data.MaxEchoAttackCount;
         }
 
-        if (HasUpgrade(SkillUpgradeFlag.TimeEcho_HealWisp))
+        if (HasUpgrade(TimeEchoUpgradeFlag.HealWisp))
         {
             echo.OnExpired += () =>
             {
@@ -70,7 +63,7 @@ public class TimeEcho : RPGSkill
             };
         }
 
-        if (HasUpgrade(SkillUpgradeFlag.TimeEcho_CooldownWisp))
+        if (HasUpgrade(TimeEchoUpgradeFlag.CooldownWisp))
         {
             echo.OnExpired += () =>
             {
@@ -80,7 +73,7 @@ public class TimeEcho : RPGSkill
             };
         }
 
-        if (HasUpgrade(SkillUpgradeFlag.TimeEcho_CleanseWisp))
+        if (HasUpgrade(TimeEchoUpgradeFlag.CleanseWisp))
         {
             echo.OnExpired += () =>
             {

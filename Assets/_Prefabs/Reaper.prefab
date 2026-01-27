@@ -69,7 +69,7 @@ MonoBehaviour:
   DefaultMoveSpeed: 0.8
   JumpForce: 12
   HpBarAnchor: {fileID: 3845755503632060584}
-  VisionRange: 10
+  VisionRange: 30
   AttackRange: 5.83
   DefaultAttackSpeed: 1
   availableArea: {fileID: 0}

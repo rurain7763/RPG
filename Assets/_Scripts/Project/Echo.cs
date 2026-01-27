@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Echo : Entity, ICombatable
 {
-    [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private float duration = 5f;
     [SerializeField] private int maxAttackCount = 3;
 
@@ -65,14 +64,14 @@ public class Echo : Entity, ICombatable
         stateMachine.AddState<EchoDead>(this);
         stateMachine.AddGlobalTransition<EchoDead>(() => CombatSystem.IsDead || RemainTime <= 0 || (MaxAttackCount != 0 && RemainAttackCount <= 0), 0);
         stateMachine.SetAsEntryState<EchoIdle>();
-
-        RemainTime = duration;
-        RemainAttackCount = maxAttackCount;
     }
 
     public override void Begin()
     {
         base.Begin();
+
+        RemainTime = duration;
+        RemainAttackCount = maxAttackCount;
 
         CombatSystem.MaxHealth = StatSystem.TotalHealth.FinalValue;
         CombatSystem.HealthRegeneration = StatSystem.HealthRegeneration.FinalValue;

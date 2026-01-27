@@ -30,7 +30,7 @@ public class Dash : RPGSkill
 
         backupGravityScale = rigidBody.gravityScale;
 
-        if (HasUpgrade(SkillUpgradeFlag.Dash_ShardOnStart))
+        if (HasUpgrade(DashUpgradeFlag.ShardOnStart))
         {
             var shard = GameObject.Instantiate(Data.ShardPrefab, entity.CenterPosition, Quaternion.identity);
             shard.Owner = entity;
@@ -53,7 +53,7 @@ public class Dash : RPGSkill
 
     public override void Cleanup()
     {
-        if (HasUpgrade(SkillUpgradeFlag.Dash_ShardOnEnd))
+        if (HasUpgrade(DashUpgradeFlag.ShardOnEnd))
         {
             var shard = GameObject.Instantiate(Data.ShardPrefab, entity.CenterPosition, Quaternion.identity);
             shard.Owner = entity;

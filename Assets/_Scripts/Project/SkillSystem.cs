@@ -86,9 +86,9 @@ public class SkillSystem
         OnSkillUpgradeChanged?.Invoke(skillId);
     }
 
-    public void RemoveUpgrade(UUID skillId, SkillUpgradeFlag flag)
+    public void RemoveUpgrade<T>(UUID skillId, T flag) where T : unmanaged, Enum
     {
-        uint v = Unsafe.As<SkillUpgradeFlag, uint>(ref flag);
+        uint v = Unsafe.As<T, uint>(ref flag);
         RemoveUpgrade(skillId, v);
     }
 

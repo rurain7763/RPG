@@ -44,7 +44,7 @@ public class Mage : AICharacter, ISkillUser
         SkillSystem.Begin();
         foreach (var skill in SkillSystem.Skills)
         {
-            skill.AddUpgrade(SkillUpgradeFlag.Default);
+            skill.AddUpgrade(SkillUpgradeCommonFlag.Default);
         }
     }
 

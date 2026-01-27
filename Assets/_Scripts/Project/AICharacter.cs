@@ -152,14 +152,8 @@ public abstract class AICharacter : Entity, ICombatable
 
         Vector2 dirToEnemy = (checkEnemy.CenterPosition - CenterPosition).normalized;
 
-        var hit = Physics2D.Raycast(CenterPosition, dirToEnemy, detectionRadius, CombatSystem.EnemyMask | obstacleLayers);
-
+        var hit = Physics2D.Raycast(CenterPosition, dirToEnemy, detectionRadius, CombatSystem.EnemyMask);
         if (hit.collider == null || hit.collider.gameObject != checkEnemy.gameObject)
-        {
-            return false;
-        }
-
-        if (checkEnemy.transform.position.y - transform.position.y > centerToHeadDistance + centerToFeetDistance)
         {
             return false;
         }
@@ -167,17 +161,34 @@ public abstract class AICharacter : Entity, ICombatable
         return true;
     }
 
+    public bool IsEnemyTooHight(Entity checkEnemy)
+    {
+        float bodyHeight = BodySize.y;
+
+        if (checkEnemy.transform.position.y > transform.position.y)
+        {
+            return checkEnemy.transform.position.y - transform.position.y > bodyHeight;
+        }
+
+        return false;
+    }
+
+    public bool IsEnemyTooLow(Entity checkEnemy)
+    {
+        float enemeyHeight = checkEnemy.BodySize.y;
+
+        if (checkEnemy.transform.position.y < transform.position.y)
+        {
+            return transform.position.y - checkEnemy.transform.position.y > enemeyHeight;
+        }
+
+        return false;
+    }
+
     public bool IsEnemyInAttackRange(Entity enemy)
     {
         float distanceToEnemy = Vector2.SqrMagnitude(CenterPosition - enemy.CenterPosition);
-
-        bool isTooLow = false;
-        if (transform.position.y > enemy.transform.position.y)
-        {
-            isTooLow = Mathf.Abs(transform.position.y - enemy.transform.position.y) > enemy.CenterToHeadDistance + enemy.CenterToFeetDistance;
-        }
-
-        return !isTooLow && distanceToEnemy <= AttackRange * AttackRange;
+        return distanceToEnemy <= AttackRange * AttackRange;
     }
 
     protected override void OnDrawGizmos()

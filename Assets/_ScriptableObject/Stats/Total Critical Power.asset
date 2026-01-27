@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Total Critical Power
   m_EditorClassIdentifier: 
   Id:
-    value: 16887193917275227850
+    value: 6642063833729002804
   DisplayName: Total Critical Power
-  Description: ...
+  Description: 
   Icon: {fileID: 1660957820977104790, guid: 5ffe8d75d1ad740418e8f479f7f55aba, type: 3}
   IsPercent: 1
   MinValue: 0

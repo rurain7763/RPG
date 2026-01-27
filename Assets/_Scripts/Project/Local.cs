@@ -79,37 +79,6 @@ public enum BuffID : uint
 }
 
 [Flags]
-public enum SkillUpgradeFlag : uint
-{
-    Default = 1 << 0,
-
-    // Dash Skill Upgrades
-    Dash_CloneOnStart = 1 << 1,
-    Dash_CloneOnEnd = 1 << 2,
-    Dash_ShardOnStart = 1 << 3,
-    Dash_ShardOnEnd = 1 << 4,
-
-    // Time shard
-    TimeShard_MoveToEnemey = 1 << 1,
-    TimeShard_Multicast = 1 << 2,
-    TimeShard_Teleport = 1 << 3,
-    TimeShard_TeleportHpRewind = 1 << 4,
-
-    // Throw Sword
-    ThrowSword_Bounce = 1 << 1,
-    ThrowSword_Pierce = 1 << 2,
-    ThrowSword_Spin = 1 << 3,
-
-    // Time Echo
-    TimeEcho_SingleAttack = 1 << 1,
-    TimeEcho_MultiAttack = 1 << 2,
-    TimeEcho_ChanceToMultipleEchoes = 1 << 3,
-    TimeEcho_HealWisp = 1 << 4,
-    TimeEcho_CleanseWisp = 1 << 5,
-    TimeEcho_CooldownWisp = 1 << 6,
-}
-
-[Flags]
 public enum SkillUpgradeCommonFlag : uint
 {
     Default = 1 << 0,
@@ -139,6 +108,17 @@ public enum ThrowSwordUpgradeFlag : uint
     Bounce = 1 << 1,
     Pierce = 1 << 2,
     Spin = 1 << 3
+}
+
+[Flags]
+public enum TimeEchoUpgradeFlag : uint
+{
+    SingleAttack = 1 << 1,
+    MultiAttack = 1 << 2,
+    ChanceToMultipleEchoes = 1 << 3,
+    HealWisp = 1 << 4,
+    CleanseWisp = 1 << 5,
+    CooldownWisp = 1 << 6,
 }
 
 public enum StatType

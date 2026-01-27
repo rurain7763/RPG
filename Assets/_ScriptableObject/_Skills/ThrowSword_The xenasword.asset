@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbffdb886725dbc4485d989409171a58, type: 3}
-  m_Name: ThrowSword_The bulletsword
+  m_Name: ThrowSword_The xenasword
   m_EditorClassIdentifier: 
   ID:
-    value: 18256283882334408035
-  DisplayName: The bulletsword
+    value: 2182460045656378530
+  DisplayName: The xenasword
   Description: ...
   Icon: {fileID: 4292991442675503664, guid: 5ffe8d75d1ad740418e8f479f7f55aba, type: 3}
   Core: {fileID: 11400000, guid: 631ad8d0f8023244ba57a76559174dab, type: 2}
-  UpgradeFlag: 4
+  UpgradeFlag: 2

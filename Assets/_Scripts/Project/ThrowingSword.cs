@@ -1,9 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Animations;
 
 public class ThrowingSword : MonoBehaviour
 {
@@ -21,9 +19,7 @@ public class ThrowingSword : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator animator;
-
-    private GameObject holder;
-    private Transform backupParent;
+    private Attacher attacher;
 
     private Vector2 originPosition;
     private bool isStucked = false;
@@ -49,6 +45,7 @@ public class ThrowingSword : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
+        attacher = GetComponent<Attacher>();
 
         PierceCount = 0;
         MaxDistanceFromOrigin = -1f;
@@ -56,6 +53,11 @@ public class ThrowingSword : MonoBehaviour
 
     private void Update()
     {
+        if (!rb.simulated)
+        {
+            return;
+        }
+
         transform.right = rb.linearVelocity.normalized * (isReturning ? -1f : 1f);
 
         if (MaxDistanceFromOrigin > 0f)
@@ -90,8 +92,6 @@ public class ThrowingSword : MonoBehaviour
     private IEnumerator BackToOwnerCo(Action onComplete)
     {
         DetachFromParent();
-
-        isStucked = false;
         isReturning = true;
 
         Vector2 directionToOwner = Owner.CenterPosition - (Vector2)transform.position;
@@ -120,10 +120,9 @@ public class ThrowingSword : MonoBehaviour
 
     private IEnumerator SpinCo(float duration, Action onComplete)
     {
-        isStucked = false;
+        DetachFromParent();
         isSpinning = true;
         rb.simulated = false;
-        rb.linearVelocity = Vector2.zero;
 
         animator.Play(SpinAnimHash);
 
@@ -183,10 +182,8 @@ public class ThrowingSword : MonoBehaviour
 
     private IEnumerator BounceCo(Action onComplete)
     {
-        isStucked = false;
+        DetachFromParent();
         isBouncing = true;
-        rb.simulated = true;
-        transform.position = LastHitTarget.CenterPosition;
 
         HashSet<Entity> bouncedTargets = new();
 
@@ -300,7 +297,6 @@ public class ThrowingSword : MonoBehaviour
 
         if (isCantPierceLayer || notEnoughPierceLeft)
         {
-            isStucked = true;
             AttachTo(collision.transform);
             OnStuck?.Invoke();
             OnStuck = null;
@@ -317,22 +313,17 @@ public class ThrowingSword : MonoBehaviour
     private void AttachTo(Transform target)
     {
         rb.simulated = false;
-        holder = new GameObject("SwordHolder");
-        holder.transform.position = transform.position;
-        holder.transform.rotation = transform.rotation;
-        holder.transform.SetParent(target, true);
-        backupParent = transform.parent;
-        transform.SetParent(holder.transform);
+        isStucked = true;
+        attacher.Attach(target);
+        attacher.OnLooseTarget += DetachFromParent;
     }
 
     private void DetachFromParent()
     {
-        if (holder != null)
-        {
-            transform.SetParent(backupParent);
-            Destroy(holder);
-            holder = null;
-            rb.simulated = true;
-        }
+        attacher.OnLooseTarget -= DetachFromParent;
+        attacher.Detach();
+        isStucked = false;
+        rb.simulated = true;
+        rb.linearVelocity = Vector2.zero;
     }
 }

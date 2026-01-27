@@ -627,6 +627,16 @@ public class PlayerThrowSword : PlayerState
     }
 }
 
+public class PlayerDomainExpansion : PlayerState
+{
+    public PlayerDomainExpansion(Player player) 
+        : base(player)
+    {
+    }
+
+
+}
+
 public class PlayerDead : PlayerState
 {
     public PlayerDead(Player player) : base(player) { }

@@ -200,15 +200,15 @@ public class ThrowSword : RPGSkill
 
         AddSequence(new AimedThrowSequence(this));
 
-        if (HasUpgrade(SkillUpgradeFlag.ThrowSword_Spin))
+        if (HasUpgrade(ThrowSwordUpgradeFlag.Spin))
         {
             AddSequence(new SpinThrowSequence(this));
         }
-        else if (HasUpgrade(SkillUpgradeFlag.ThrowSword_Pierce))
+        else if (HasUpgrade(ThrowSwordUpgradeFlag.Pierce))
         {
             AddSequence(new PierceThrowSequence(this));
         }
-        else if (HasUpgrade(SkillUpgradeFlag.ThrowSword_Bounce))
+        else if (HasUpgrade(ThrowSwordUpgradeFlag.Bounce))
         {
             AddSequence(new BounceThrowSequence(this));
         }
