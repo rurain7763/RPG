@@ -85,7 +85,7 @@ public class Merchant : NPC, IInteractable
     {
         var customActions = new List<(string, Action)>()
         {
-            ("Open shop", () => RPG.UISys.OpenPopup<MerchantUI>().Setup(merchantData, merchantInventory, player.InventorySystem))
+            ("npc_merchant_action_openshop", () => RPG.UISys.OpenPopup<MerchantUI>().Setup(merchantData, merchantInventory, player.InventorySystem))
         };
 
         OpenDialogueUI(player, customActions);

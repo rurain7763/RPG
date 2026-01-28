@@ -11,8 +11,11 @@ public class StatData : ScriptableObject
     public float MinValue;
     public float MaxValue;
 
-    private void Awake()
+    private void OnValidate()
     {
-        Id.Generate();
+        if (!Id.IsValid())
+        {
+            Id.Generate();
+        }
     }
 }

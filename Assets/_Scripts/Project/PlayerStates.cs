@@ -33,7 +33,7 @@ public abstract class PlayerState : State
             return;
         }
 
-        player.Rigidbody.linearVelocity = new Vector2(xAxis * factor, player.Rigidbody.linearVelocity.y);
+        player.Rigidbody.linearVelocity = new Vector2(xAxis * player.MoveForce * factor, player.Rigidbody.linearVelocity.y);
         if ((xAxis > 0 && !player.IsFacingRight) || (xAxis < 0 && player.IsFacingRight))
         {
             player.FlipFacing();
@@ -186,7 +186,7 @@ public class PlayerMove : PlayerState
 
     public override void Execute()
     {
-        player.Animator.SetFloat(MoveAnimSpeedFactorHash, player.MoveSpeed / player.DefaultMoveSpeed);
+        player.Animator.SetFloat(MoveAnimSpeedFactorHash, player.MoveSpeed);
 
         HandleMovement(player.MoveSpeed);
 
@@ -445,7 +445,7 @@ public class PlayerBasicAttack : PlayerState
 
     public override void Execute()
     {
-        player.Animator.SetFloat(AttackAnimSpeedFactorHash, player.AttackSpeed / player.DefaultAttackSpeed);
+        player.Animator.SetFloat(AttackAnimSpeedFactorHash, player.AttackSpeed);
 
         HandleDash();
 
@@ -491,7 +491,7 @@ public class PlayerJumpAttack : PlayerState
 
     public override void Execute()
     {
-        player.Animator.SetFloat(AttackAnimSpeedFactorHash, player.AttackSpeed / player.DefaultAttackSpeed);
+        player.Animator.SetFloat(AttackAnimSpeedFactorHash, player.AttackSpeed);
 
         if (!enterGrounded && player.IsGrounded)
         {

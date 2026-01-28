@@ -1,12 +1,12 @@
 ﻿using System;
 
 [Serializable]
-public class ItemQuestReward : IQuestReward
+public class ItemReward : IReward
 {
     public ItemData itemData;
     public int quantity;
 
-    public void Grant(QuestSystem questSystem)
+    public void Grant()
     {
         using (RPG.UserDataSys.PlayData.Inventory.BeginTransaction())
         {

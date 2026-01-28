@@ -14,26 +14,22 @@ public abstract class RPGBuff : Buff
 
 public class Frozen : RPGBuff
 {
-    private AddValueModifier moveSpeedModifier;
-    private AddValueModifier attackSpeedModifier;
+    private AddValueModifier activeSpeedModifier;
 
     public Frozen(float duration, ICombatable source) 
         : base(BuffID.Frozen, BuffCategory.Negative, duration, 1, source)
     {
-        moveSpeedModifier = new AddValueModifier(-0.3f);
-        attackSpeedModifier = new AddValueModifier(-0.2f);
+        activeSpeedModifier = new AddValueModifier(-0.23f);
     }
 
     public override void OnApply()
     {
-        Owner.StatSystem.MoveSpeed.AddModifier(moveSpeedModifier);
-        Owner.StatSystem.AttackSpeed.AddModifier(attackSpeedModifier);
+        Owner.StatSystem.ActiveSpeed.AddModifier(activeSpeedModifier);
     }
 
     public override void OnExpire()
     {
-        Owner.StatSystem.MoveSpeed.RemoveModifier(moveSpeedModifier);
-        Owner.StatSystem.AttackSpeed.RemoveModifier(attackSpeedModifier);
+        Owner.StatSystem.ActiveSpeed.RemoveModifier(activeSpeedModifier);
     }
 
     public override bool OnDuplicate(Buff newBuff)

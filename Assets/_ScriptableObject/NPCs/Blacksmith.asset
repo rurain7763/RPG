@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: 79722bb4f10088c41b1ce974157c1a96, type: 2}
   Dialogues:
-  - Stay awhile and listen to my stories.
-  - Have you heard the latest news from the capital?
-  - Be careful out there, monsters have been spotted nearby.
-  - Hello there, traveler!
-  - The stars are particularly bright tonight.
-  - Be careful out there, monsters have been spotted nearby.
-  - The weather is nice today, isn't it?
-  - May your journey be safe and prosperous!
-  - Be careful out there, monsters have been spotted nearby.
-  - Have you heard the latest news from the capital?
+  - npc_blacksmith_chat_1
+  - npc_blacksmith_chat_2
+  - npc_blacksmith_chat_3
+  - npc_blacksmith_chat_4
+  - npc_blacksmith_chat_5
+  - npc_blacksmith_chat_6
+  - npc_blacksmith_chat_7
+  - npc_blacksmith_chat_8
+  - npc_blacksmith_chat_9
+  - npc_blacksmith_chat_10

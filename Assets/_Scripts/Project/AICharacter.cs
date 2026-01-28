@@ -7,7 +7,6 @@ public abstract class AICharacter : Entity, ICombatable
     public Transform HpBarAnchor;
     public float VisionRange = 5f;
     public float AttackRange = 1.5f;
-    public float DefaultAttackSpeed = 1f;
 
     public AnimationEventReciever AnimationEventReciever { get; private set; }
     public Rigidbody2D Rigidbody { get; private set; }
@@ -18,11 +17,11 @@ public abstract class AICharacter : Entity, ICombatable
     public EntitySFXSystem SFXSystem { get; private set; }
     public StateMachine StateMachine { get; private set; }
 
-    public override float MoveSpeed
+    public float MoveSpeed
     {
         get
         {
-            return DefaultMoveSpeed * StatSystem.MoveSpeed.FinalValue;
+            return StatSystem.ActiveSpeed.FinalValue * StatSystem.MoveSpeed.FinalValue;
         }
     }
 
@@ -30,7 +29,7 @@ public abstract class AICharacter : Entity, ICombatable
     {
         get
         {
-            return DefaultAttackSpeed * StatSystem.AttackSpeed.FinalValue;
+            return StatSystem.ActiveSpeed.FinalValue * StatSystem.AttackSpeed.FinalValue;
         }
     }
 

@@ -15,10 +15,10 @@ public class QuestUI : PopupUI
     [SerializeField, Reference()] private TabController tabController;
 
     [SerializeField, Reference()] private InfiniteScroll availableQuestScroll;
-    [SerializeField, Reference()] private TMP_Text descriptionText;
+    [SerializeField, Reference()] private LocalizationText descriptionText;
 
     [SerializeField, Reference()] private InfiniteScroll inProgressQuestScroll;
-    [SerializeField, Reference()] private TMP_Text inProgressQuestProgressText;
+    [SerializeField, Reference()] private LocalizationText inProgressQuestProgressText;
 
     [SerializeField, Reference()] private InfiniteScroll completedQuestScroll;
 
@@ -147,7 +147,7 @@ public class QuestUI : PopupUI
 
     private void HandleOnClickAvailableQuestScrollItem(QuestScrollItem questItem)
     {
-        descriptionText.text = questItem.QuestData.Description;
+        descriptionText.SetText($"{{{questItem.QuestData.Description}}}");
     }
 
     private void HandleOnClickInProgressQuestScrollItem(QuestScrollItem questItem)
@@ -165,7 +165,7 @@ public class QuestUI : PopupUI
 
     private void OnInProgressQuestStepChanged()
     {
-        inProgressQuestProgressText.text = currentSelectedQuest.CurrentStep.GetProgressText("- {0} : {1}/{2}");
+        inProgressQuestProgressText.SetText(currentSelectedQuest.CurrentStep.GetProgressText("- {{{0}}} : {1}/{2}"));
     }
 
     private void HandleOnClickCompletedQuestScrollItem(QuestScrollItem questItem)

@@ -2,6 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Language
+{
+    English,
+    Spanish,
+    French,
+    German,
+    Chinese,
+    Japanese,
+    Korean,
+    Russian
+}
+
+public interface IReward
+{
+    void Grant();
+}
+
 public interface ICondition
 {
     bool Evaluate();

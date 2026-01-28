@@ -14,29 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID:
     value: 5713458344567873146
-  DisplayName: I'm scared
-  Description: Kill 5 skeletons, please!
+  DisplayName: q_5713_title
+  Description: q_5713_description
   Policy: 0
   Prerequisites: []
   Steps:
   - rid: 6168998121975054488
+  StartRewards: []
   CompletionRewards:
-  - rid: 6168998121975054490
+  - rid: 6168998643423773508
   references:
     version: 2
     RefIds:
     - rid: 6168998121975054488
       type: {class: KillEnemyQuestStepData, ns: , asm: Assembly-CSharp}
       data:
-        Description: Kill skeleton knight
+        Description: q_5713_s0_desc
+        CompletionRewards: []
         EnemyType:
           GuidAssignmentFailed: 0
           GUID: 03fab9b5fa9d6904d8e6c82e91ce538f
           _typeNameAndAssembly: SkeletonKnight, Assembly-CSharp
           _suppressLogs: 0
         RequiredKillCount: 1
-    - rid: 6168998121975054490
-      type: {class: ItemQuestReward, ns: , asm: Assembly-CSharp}
+    - rid: 6168998643423773508
+      type: {class: ItemReward, ns: , asm: Assembly-CSharp}
       data:
-        itemData: {fileID: 11400000, guid: 272816f442913824c8150ee9f64fa161, type: 2}
-        quantity: 1
+        itemData: {fileID: 11400000, guid: 187458c70a682894b82dc099bc98506e, type: 2}
+        quantity: 5

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2fbcc7c2225c0424fb0b4d6f3ca223b5, type: 3}
-  m_Name: Move Speed
+  m_Name: Active Speed
   m_EditorClassIdentifier: 
   Id:
-    value: 10306799068813565314
-  DisplayName: Move Speed
+    value: 2841437997418855689
+  DisplayName: Active Speed
   Description: ...
-  Icon: {fileID: 1660957820977104790, guid: 5ffe8d75d1ad740418e8f479f7f55aba, type: 3}
+  Icon: {fileID: -5278310724755141886, guid: 5ffe8d75d1ad740418e8f479f7f55aba, type: 3}
   IsPercent: 0
   MinValue: 0
-  MaxValue: 15
+  MaxValue: 5

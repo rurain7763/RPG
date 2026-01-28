@@ -1,25 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AYellowpaper.SerializedCollections;
+using System;
+using TMPro;
 using UnityEngine;
-
-public enum Language
-{
-    English,
-    Spanish,
-    French,
-    German,
-    Chinese,
-    Japanese,
-    Korean,
-    Russian
-}
 
 public class LocalizationSystem : AppSystem
 {
-    private string localizationFileMemory = string.Empty;
-
-    private Language currentLanguage;
-    private Dictionary<string, string> localizedTexts = new();
+    [SerializeReference, SubclassSelector] private ILanguageSource languageSource;
+    [SerializeField] private SerializedDictionary<Language, TMP_FontAsset> languageFonts;
+    [SerializeField] private Language currentLanguage;
 
     public Language CurrentLanguage
     {
@@ -32,70 +20,23 @@ public class LocalizationSystem : AppSystem
             }
 
             currentLanguage = value;
-            LoadLocalizedTexts();
+            languageSource.SetLanguage(currentLanguage);
 
             OnLanguageChanged?.Invoke();
         }
     }
 
+    public TMP_FontAsset CurrentFont => languageFonts[currentLanguage];
+
     public event Action OnLanguageChanged;
 
     public override void OnAttach(AppManager appManager)
     {
-        base.OnAttach(appManager);
-
-        var resourcesSystem = appManager.GetSystem<ResourcesSystem>();
-
-        if (!resourcesSystem.TryGetResource($"Localization", out TextAsset csvAsset))
-        {
-            Logger.Warn($"Localization file for language not found.");
-            return;
-        }
-
-        localizationFileMemory = csvAsset.text;
-        currentLanguage = Language.English;
-        LoadLocalizedTexts();
-    }
-
-    private void LoadLocalizedTexts()
-    {
-        if (localizationFileMemory == string.Empty)
-        {
-            return;
-        }
-
-        localizedTexts.Clear();
-
-        var csv = CSVReader.ReadFromMemory(localizationFileMemory);
-
-        string columnKey = currentLanguage.ToString();
-        columnKey = columnKey.ToLower();
-
-        foreach (var row in csv)
-        {
-            string key = Convert.ToString(row["key"]);
-            string value = Convert.ToString(row[columnKey]);
-
-            if (localizedTexts.ContainsKey(key))
-            {
-                Logger.Warn($"Duplicate localization key found: {key}");
-                continue;
-            }
-
-            localizedTexts[key] = value;
-        }
+        languageSource.SetLanguage(currentLanguage);
     }
 
     public bool TryGetLocalizedText(string key, out string value)
     {
-        return localizedTexts.TryGetValue(key, out value);
-    }
-
-    public override Type[] GetDependencySystemTypes()
-    {
-        return new Type[]
-        {
-            typeof(ResourcesSystem)
-        };
+        return languageSource.TryGetText(key, out value);
     }
 }

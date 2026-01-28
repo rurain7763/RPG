@@ -42,6 +42,7 @@ public class EntityStatSystem : MonoBehaviour
 
     [SerializeField] private StatEntry moveSpeedEntry;
     [SerializeField] private StatEntry attackSpeedEntry;
+    [SerializeField] private StatEntry activeSpeedEntry;
 
     [SerializeField] private CombinedStatEntry totalHealthEntry;
     [SerializeField] private CombinedStatEntry physicalDamageEntry;
@@ -81,6 +82,7 @@ public class EntityStatSystem : MonoBehaviour
 
     public Stat MoveSpeed => stats[moveSpeedEntry.StatData] as Stat;
     public Stat AttackSpeed => stats[attackSpeedEntry.StatData] as Stat;
+    public Stat ActiveSpeed => stats[activeSpeedEntry.StatData] as Stat;
 
     public CombinedStat TotalHealth => stats[totalHealthEntry.StatData] as CombinedStat;
     public CombinedStat PhysicalDamage => stats[physicalDamageEntry.StatData] as CombinedStat;
@@ -115,7 +117,8 @@ public class EntityStatSystem : MonoBehaviour
         stats[lightningResistanceEntry.StatData] = new Stat(lightningResistanceEntry.StatData, lightningResistanceEntry.BaseValue);
         stats[moveSpeedEntry.StatData] = new Stat(moveSpeedEntry.StatData, moveSpeedEntry.BaseValue);
         stats[attackSpeedEntry.StatData] = new Stat(attackSpeedEntry.StatData, attackSpeedEntry.BaseValue);
-        
+        stats[activeSpeedEntry.StatData] = new Stat(activeSpeedEntry.StatData, activeSpeedEntry.BaseValue);
+
         var totalHealth = new CombinedStat(totalHealthEntry.StatData, Health, Vitality);
         totalHealth.SetCalculationFunc((statList) =>
         {

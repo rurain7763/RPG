@@ -62,7 +62,7 @@ public class TalkToNPCQuestStep : QuestStep
         return string.Format(format, Data.Description, 1, 1);
     }
 
-    public override UUID GetTargetID() => Data.TargetNPCID;
+    public override UUID GetObjectiveTarget() => Data.TargetNPCID;
 }
 
 public class KillEnemyQuestStep : QuestStep
@@ -153,6 +153,8 @@ public class DeliverItemToQuestStep : QuestStep
 
     public override void Commit()
     {
+        base.Commit();
+
         var items = inventory.GetItems(Data.Item, Data.Quantity);
         inventory.RemoveItems(items);
     }
@@ -178,5 +180,5 @@ public class DeliverItemToQuestStep : QuestStep
         return string.Format(format, Data.Description, currentItemCount, Data.Quantity);
     }
 
-    public override UUID GetTargetID() => Data.TargetID;
+    public override UUID GetObjectiveTarget() => Data.TargetID;
 }

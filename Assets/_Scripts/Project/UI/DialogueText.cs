@@ -1,22 +1,21 @@
-﻿using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DialogueText : MonoBehaviour
 {
-    private TMP_Text textText;
+    private LocalizationText textText;
     private WorldToUIFollower worldToUIFollower;
     private TypewriterTextEffector typewriterTextEffector;
 
     private void Awake()
     {
-        textText = GetComponentInChildren<TMP_Text>();
+        textText = GetComponentInChildren<LocalizationText>();
         worldToUIFollower = GetComponentInChildren<WorldToUIFollower>();
         typewriterTextEffector = GetComponentInChildren<TypewriterTextEffector>();
     }
 
     public void SetText(string text, bool useTypewriterEffect = false)
     {
-        textText.text = text;
+        textText.SetText(text);
 
         if (useTypewriterEffect)
         {

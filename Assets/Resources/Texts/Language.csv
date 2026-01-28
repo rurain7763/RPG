@@ -1,0 +1,48 @@
+key,english,korean
+q_5713_offer_dialog_1,Skeleton soldiers have been appearing near the village.,마을 근처에 해골 병사들이 나타나고 있어요.
+q_5713_offer_dialog_2,They're scaring away the merchants and travelers.,상인들과 여행자들을 겁주고 있죠.
+q_5713_offer_dialog_3,Could you defeat one of them for me?,한 마리만 처치해주시겠어요?
+q_5713_offer_choice_yes,Yes,예
+q_5713_offer_accept,Thank you! Please be careful out there.,감사합니다! 조심하세요.
+q_5713_offer_choice_no,No,아니오
+q_5713_offer_decline,I understand. It's dangerous work.,이해해요. 위험한 일이니까요.
+q_5713_progress_s0_dialog_1,Have you defeated the skeleton soldier yet?,해골 병사를 처치했나요?
+q_5713_s0_complete_1,You defeated one! The village will be safer now.,한 마리를 처치했군요! 마을이 더 안전해질 거예요.
+q_5713_complete_dialog_1,The roads are safer thanks to you!,당신 덕분에 길이 안전해졌어요!
+q_5713_title,Defeat the Skeleton Soldier,해골 병사 처치
+q_5713_description,Skeleton soldiers are threatening the village. Defeat one of them to protect the merchants and travelers.,해골 병사들이 마을을 위협하고 있습니다. 상인과 여행자를 보호하기 위해 한 마리를 처치하세요.
+q_5713_s0_desc,Defeat a skeleton soldier,해골 병사 처치
+q_3555_offer_dialog_1,Bob has been sick for days now.,밥이 며칠째 아프답니다.
+q_3555_offer_dialog_2,Can you deliver this healing potion to him?,이 치료 포션을 전달해주시겠어요?
+q_3555_offer_choice_yes,Yes,예
+q_3555_offer_accept,Thank you! He really needs this.,감사합니다! 정말 필요한 물건이에요.
+q_3555_offer_choice_no,No,아니오
+q_3555_offer_decline,Oh I see. I hope I can find someone else.,그렇군요. 다른 사람을 찾아봐야겠어요.
+q_3555_progress_s0_dialog_1,Did Jhon send you?,존이 보냈나요?
+q_3555_complete_dialog_1,This potion will help me recover. Thank you so much!,이 포션으로 회복할 수 있겠어요. 정말 감사합니다!
+q_3555_title,Deliver the Healing Potion,치료 포션 전달
+q_3555_description,Bob is sick and needs a healing potion. Deliver the potion from Jhon to Bob.,밥이 아파서 치료 포션이 필요합니다. 존의 포션을 밥에게 전달하세요.
+q_3555_s0_desc,Deliver the healing potion to Bob,밥에게 치료 포션 전달
+npc_shop_chat_1,Business has been slow lately.,요즘 장사가 잘 안돼요.
+npc_shop_chat_2,My back is killing me from standing all day.,하루종일 서있어서 허리가 아파 죽겠어요.
+npc_shop_chat_3,Did you hear about the monster sightings near the forest?,숲 근처에서 몬스터가 목격됐다던데 들었어요?
+npc_shop_chat_4,I used to be an adventurer like you.,저도 예전엔 당신 같은 모험가였답니다.
+npc_shop_chat_5,The weather's been strange this week.,이번 주 날씨가 이상해요.
+npc_shop_chat_6,My daughter wants to become a mage.,제 딸이 마법사가 되고 싶대요.
+npc_shop_chat_7,I've been running this shop for 20 years now.,이 가게를 운영한 지 벌써 20년이 됐네요.
+npc_shop_chat_8,Sometimes I miss the old days.,가끔 옛날이 그리워요.
+npc_shop_chat_9,The mayor raised taxes again. Unbelievable.,시장이 또 세금을 올렸어요. 말도 안되죠.
+npc_shop_chat_10,I heard a rumor about treasure in the old ruins.,옛 유적에 보물이 있다는 소문을 들었어요.
+npc_blacksmith_chat_1,Been hammering iron since dawn. I'm exhausted.,새벽부터 쇠를 두드렸더니 녹초가 됐어요.
+npc_blacksmith_chat_2,My apprentice quit yesterday. Kids these days.,어제 제자가 그만뒀어요. 요즘 애들은 말이죠.
+npc_blacksmith_chat_3,This heat never bothers me anymore.,이제 이 더위는 신경도 안 쓰여요.
+npc_blacksmith_chat_4,I made my first sword when I was just 12 years old.,12살 때 처음 검을 만들었죠.
+npc_blacksmith_chat_5,My wife keeps nagging me to retire.,아내가 자꾸 은퇴하라고 잔소리해요.
+npc_blacksmith_chat_6,Nothing beats the smell of hot metal in the morning.,아침에 맡는 뜨거운 쇠 냄새만한 게 없죠.
+npc_blacksmith_chat_7,I once forged a sword for the king himself.,한때 왕을 위해 검을 만든 적이 있어요.
+npc_blacksmith_chat_8,These old hands aren't what they used to be.,이 늙은 손이 예전 같지 않아요.
+npc_blacksmith_chat_9,Heard some bandits on the road lately. Be careful.,최근 길에 산적들이 있다던데. 조심하세요.
+npc_blacksmith_chat_10,Sometimes I talk to my hammer. Don't judge me.,가끔 망치한테 말을 걸어요. 이상하게 보지 마세요.
+npc_merchant_action_openshop,Open shop,상점 열기
+npc_blacksmith_action_craft,Craft equipment,장비 제작
+npc_blacksmith_action_storage,Access storage,창고 이용

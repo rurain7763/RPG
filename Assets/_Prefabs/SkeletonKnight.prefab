@@ -66,6 +66,7 @@ MonoBehaviour:
   centerToFrontDistance: 0.35
   centerToBackDistance: 0.35
   DefaultMoveSpeed: 1.4
+  MoveForce: 1.4
   JumpForce: 12
   HpBarAnchor: {fileID: 3845755503632060584}
   VisionRange: 10
@@ -162,6 +163,9 @@ MonoBehaviour:
     BaseValue: 1
   attackSpeedEntry:
     StatData: {fileID: 11400000, guid: 3053069c72cecd74b9dfca5199bdc3e6, type: 2}
+    BaseValue: 1
+  activeSpeedEntry:
+    StatData: {fileID: 11400000, guid: 4825f3f55ee09b24da81c281c2756d33, type: 2}
     BaseValue: 1
   totalHealthEntry:
     StatData: {fileID: 11400000, guid: c07a07bae1dd71a4eac7f88c4202bc1b, type: 2}
@@ -403,7 +407,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032abdf6fa2bbaa4f8ccd7e949523ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventHandlers: []
+  eventsDic:
+    _serializedList: []
 --- !u!1 &1886007886403389973
 GameObject:
   m_ObjectHideFlags: 0

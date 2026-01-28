@@ -847,6 +847,7 @@ GameObject:
   - component: {fileID: 1553937669}
   - component: {fileID: 1553937672}
   - component: {fileID: 1553937671}
+  - component: {fileID: 1553937673}
   m_Layer: 0
   m_Name: RPG
   m_TagString: Untagged
@@ -916,6 +917,34 @@ MonoBehaviour:
     _serializedList:
     - Key: All
       Value: {fileID: 4900000, guid: f50765dff5315d3449d7e9d0dbe23379, type: 3}
+--- !u!114 &1553937673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553937668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038a5c322b2caf04b8646b3b1eda4e1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  languageSource:
+    rid: 6168998643423773460
+  languageFonts:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 11400000, guid: 20abc13a31909d345979bf533387d1fc, type: 2}
+    - Key: 6
+      Value: {fileID: 11400000, guid: 20abc13a31909d345979bf533387d1fc, type: 2}
+  currentLanguage: 6
+  references:
+    version: 2
+    RefIds:
+    - rid: 6168998643423773460
+      type: {class: CSVLanguageSource, ns: , asm: Common}
+      data:
+        csvAsset: {fileID: 4900000, guid: ba3768038fd3dba4b80e1f14a0f3591d, type: 3}
 --- !u!1 &1860787150
 GameObject:
   m_ObjectHideFlags: 0

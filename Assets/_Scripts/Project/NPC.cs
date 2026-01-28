@@ -200,7 +200,7 @@ public class NPC : Entity
             return;
         }
 
-        ShowDialogueText(npcData.GetRandomDialogue());
+        ShowDialogueText($"{{{npcData.GetRandomDialogue()}}}");
     }
 
     protected bool IsQuestIndicatorActive()
@@ -219,7 +219,7 @@ public class NPC : Entity
         int bestPriority = 0;
         questSystem.EachActiveQuests(quest =>
         {
-            if (quest.CurrentStep.GetTargetID() != QuestGiver.ID)
+            if (quest.CurrentStep.GetObjectiveTarget() != QuestGiver.ID)
             {
                 return true;
             }
@@ -263,7 +263,7 @@ public class NPC : Entity
         List<Quest> interactableQuests = new();
         player.QuestSystem.EachActiveQuests(quest =>
         {
-            if (quest.CurrentStep.GetTargetID() == QuestGiver.ID)
+            if (quest.CurrentStep.GetObjectiveTarget() == QuestGiver.ID)
             {
                 interactableQuests.Add(quest);
             }
@@ -322,7 +322,6 @@ public class NPC : Entity
             }
             else if (choiceIndex - interactableQuests.Count < availableQuests.Count)
             {
-
                 var questData = availableQuests[choiceIndex - interactableQuests.Count];
                 dialogue.ChoosePath($"Quest_{questData.ID}_Offer");
                 dialogue.Continue();

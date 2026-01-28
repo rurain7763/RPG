@@ -10,7 +10,8 @@ public class QuestData : ScriptableObject
     public QuestPolicy Policy;
     [SerializeReference, SubclassSelector] public IQuestPrerequisite[] Prerequisites;
     [SerializeReference, SubclassSelector] public QuestStepData[] Steps;
-    [SerializeReference, SubclassSelector] public IQuestReward[] CompletionRewards;
+    [SerializeReference, SubclassSelector] public IReward[] StartRewards;
+    [SerializeReference, SubclassSelector] public IReward[] CompletionRewards;
 
     private void Awake()
     {
@@ -69,9 +70,3 @@ public class QuestQuestPrerequisites : IQuestPrerequisite
         return questSystem.HasCompletedHistory(questData);
     }
 }
-
-public interface IQuestReward
-{
-    void Grant(QuestSystem questSystem);
-}
-

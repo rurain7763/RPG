@@ -64,10 +64,8 @@ MonoBehaviour:
   centerToFrontDistance: 0.5
   centerToBackDistance: 0.45
   DefaultMoveSpeed: 8
+  MoveForce: 8
   JumpForce: 12
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 512
   duration: 5
   maxAttackCount: 3
 --- !u!114 &6251306443848521102
@@ -161,6 +159,9 @@ MonoBehaviour:
     BaseValue: 1
   attackSpeedEntry:
     StatData: {fileID: 11400000, guid: 3053069c72cecd74b9dfca5199bdc3e6, type: 2}
+    BaseValue: 1
+  activeSpeedEntry:
+    StatData: {fileID: 11400000, guid: 4825f3f55ee09b24da81c281c2756d33, type: 2}
     BaseValue: 1
   totalHealthEntry:
     StatData: {fileID: 11400000, guid: c07a07bae1dd71a4eac7f88c4202bc1b, type: 2}

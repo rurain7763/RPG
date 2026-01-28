@@ -74,7 +74,7 @@ public class Blacksmith : NPC, IInteractable
 
         var customActions = new List<(string, Action)>()
         {
-            ("Open storage", () => RPG.UISys.OpenPopup<BlacksmithUI>().Setup(playDataTable.StorageInventory, player.InventorySystem))
+            ("npc_blacksmith_action_storage", () => RPG.UISys.OpenPopup<BlacksmithUI>().Setup(playDataTable.StorageInventory, player.InventorySystem))
         };
 
         OpenDialogueUI(player, customActions);

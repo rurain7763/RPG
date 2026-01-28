@@ -68,6 +68,11 @@ public class Quest
 
     internal void Begin()
     {
+        foreach (var reward in Data.StartRewards)
+        {
+            reward.Grant();
+        }
+
         currentStepIndex = 0;
         CurrentStep = Data.Steps[currentStepIndex].CreateStep();
         CurrentStep.quest = this;
@@ -113,7 +118,7 @@ public class Quest
 
         foreach (var reward in Data.CompletionRewards)
         {
-            reward.Grant(questSystem);
+            reward.Grant();
         }
         CurrentStep = null;
         currentStepIndex = Data.Steps.Length;

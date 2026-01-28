@@ -9,9 +9,9 @@ public class DialogueUI : PopupUI
 {
     [SerializeField, Reference("Popup/Image_Speaker")] private Image speakerImage;
     [SerializeField, Reference("Popup/Image_Speaker/Text_Name")] private TMP_Text speakerNameText;
-    [SerializeField, Reference("Popup/DialogueView/Text_Dialogue")] private TMP_Text dialogueText;
+    [SerializeField, Reference("Popup/DialogueView/Text_Dialogue")] private LocalizationText dialogueText;
     [SerializeField, Reference("Popup/DialogueView/Text_Dialogue")] private TypewriterTextEffector dialogueTextEffector;
-    [SerializeField, Reference("Popup/DialogueView/Text_Choices")] private TMP_Text choicesText;
+    [SerializeField, Reference("Popup/DialogueView/Text_Choices")] private LocalizationText choicesText;
     [SerializeField, Reference("Popup/DialogueView/Text_Choices")] private TypewriterTextEffector choicesTextEffector;
 
     private Dialogue dialogue;
@@ -44,7 +44,7 @@ public class DialogueUI : PopupUI
 
     private void HandleOnDidContinue()
     {
-        currentLine = dialogue.CurrentText;
+        currentLine = dialogue.CurrentText.Trim('\n');
         if (dialogue.HasChoices)
         {
             currentChoices = dialogue.CurrentChoices;
@@ -102,24 +102,19 @@ public class DialogueUI : PopupUI
             currentChoiceIndex = -1;
         }
 
-        if (dialogue.CanContinue)
+        while (dialogue.CanContinue)
         {
             dialogue.Continue();
             dialogue.ExecutePendingTasks();
 
-            if (string.IsNullOrEmpty(dialogue.CurrentText))
-            {
-                CloseThis();
-            }
-            else
+            if (!string.IsNullOrWhiteSpace(dialogue.CurrentText))
             {
                 HandleOnDidContinue();
+                return;
             }
         }
-        else
-        {
-            CloseThis();
-        }
+
+        CloseThis();
     }
 
     private void HandleArrowInput()
@@ -180,23 +175,23 @@ public class DialogueUI : PopupUI
 
     private void UpdateDialogueText()
     {
-        dialogueText.text = currentLine;
+        dialogueText.SetText($"{{{currentLine}}}");
     }
 
     private void UpdateChoicesText()
     {
         if (currentChoices.Count == 0)
         {
-            choicesText.text = "";
+            choicesText.Clear();
             return;
         }
         var choicesDisplayText = new StringBuilder();
         for (int i = 0; i < currentChoices.Count; i++)
         {
-            string lineText = Helper.MakeColoredString((i == currentChoiceIndex) ? Color.yellow : Color.white, $"{i + 1}) {currentChoices[i].Text}");
+            string lineText = Helper.MakeColoredString((i == currentChoiceIndex) ? Color.yellow : Color.white, $"{i + 1}) {{{currentChoices[i].Text}}}");
             choicesDisplayText.AppendLine(lineText);
         }
-        choicesText.text = choicesDisplayText.ToString();
+        choicesText.SetText(choicesDisplayText.ToString());
     }
 
     private void PlayTypewriters()
@@ -207,17 +202,17 @@ public class DialogueUI : PopupUI
 
     private IEnumerator PlayTypewritersCo()
     {
-        TMP_Text[] texts = { dialogueText, choicesText };
+        GameObject[] textGos = { dialogueText.gameObject, choicesText.gameObject };
         TypewriterTextEffector[] effectors = { dialogueTextEffector, choicesTextEffector };
 
-        for (int i = 0; i < texts.Length; i++)
+        for (int i = 0; i < textGos.Length; i++)
         {
-            texts[i].gameObject.SetActive(false);
+            textGos[i].SetActive(false);
         }
 
-        for (int i = 0; i < texts.Length; i++)
+        for (int i = 0; i < textGos.Length; i++)
         {
-            texts[i].gameObject.SetActive(true);
+            textGos[i].SetActive(true);
             effectors[i].Play();
 
             while (effectors[i].IsPlaying)
@@ -239,13 +234,13 @@ public class DialogueUI : PopupUI
         StopCoroutine(playTypewritersCoroutine);
         playTypewritersCoroutine = null;
 
-        TMP_Text[] texts = { dialogueText, choicesText };
+        GameObject[] textGos = { dialogueText.gameObject, choicesText.gameObject };
         TypewriterTextEffector[] effectors = { dialogueTextEffector, choicesTextEffector };
 
-        for (int i = 0; i < texts.Length; i++)
+        for (int i = 0; i < textGos.Length; i++)
         {
             effectors[i].Stop();
-            texts[i].gameObject.SetActive(true);
+            textGos[i].SetActive(true);
         }
     }
 }

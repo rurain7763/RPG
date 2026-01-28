@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: 04ac6ce43844f0345a8498eb070d2f26, type: 2}
   Dialogues:
-  - Remember, courage is the key to overcoming any challenge.
-  - If you need supplies, feel free to visit my shop.
-  - If you need supplies, feel free to visit my shop.
-  - Remember, courage is the key to overcoming any challenge.
-  - Remember, courage is the key to overcoming any challenge.
-  - The weather is nice today, isn't it?
-  - Legends say that a hidden treasure lies in the old ruins.
-  - May your journey be safe and prosperous!
-  - Remember, courage is the key to overcoming any challenge.
-  - Hello there, traveler!
+  - npc_shop_chat_1
+  - npc_shop_chat_2
+  - npc_shop_chat_3
+  - npc_shop_chat_4
+  - npc_shop_chat_5
+  - npc_shop_chat_6
+  - npc_shop_chat_7
+  - npc_shop_chat_8
+  - npc_shop_chat_9
+  - npc_shop_chat_10

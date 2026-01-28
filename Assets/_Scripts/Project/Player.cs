@@ -6,8 +6,6 @@ public class Player : Entity, ICombatable, ISkillUser, IHasInventory
 
     [SerializeField] private LayerMask interactableLayer;
 
-    public float DefaultAttackSpeed = 1f;
-
     public AnimationEventReciever AnimationEventReciever { get; private set; }
     public Rigidbody2D Rigidbody { get; private set; }
     public PlayerInputSystem InputSystem { get; private set; }
@@ -23,11 +21,11 @@ public class Player : Entity, ICombatable, ISkillUser, IHasInventory
     public EquipmentSystem EquipmentSystem { get; private set; }
     public EntityQuickItemSystem QuickItemSystem { get; private set; }
 
-    public override float MoveSpeed
+    public float MoveSpeed
     {
         get
         {
-            return DefaultMoveSpeed * StatSystem.MoveSpeed.FinalValue;
+            return StatSystem.ActiveSpeed.FinalValue * StatSystem.MoveSpeed.FinalValue;
         }
     }
 
@@ -35,7 +33,7 @@ public class Player : Entity, ICombatable, ISkillUser, IHasInventory
     {
         get
         {
-            return DefaultAttackSpeed * StatSystem.AttackSpeed.FinalValue;
+            return StatSystem.ActiveSpeed.FinalValue * StatSystem.AttackSpeed.FinalValue;
         }
     }
 

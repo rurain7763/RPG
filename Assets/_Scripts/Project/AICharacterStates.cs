@@ -150,8 +150,8 @@ public abstract class AICharacterMoveState : AICharacterState
     {
         float moveSpeed = character.MoveSpeed;
 
-        character.Animator.SetFloat(MoveAnimSpeedFactorHash, moveSpeed / character.DefaultMoveSpeed);
-        character.Rigidbody.linearVelocity = new Vector2(moveSpeed * character.FacingDirection, character.Rigidbody.linearVelocity.y);
+        character.Animator.SetFloat(MoveAnimSpeedFactorHash, moveSpeed);
+        character.Rigidbody.linearVelocity = new Vector2(character.MoveForce * moveSpeed * character.FacingDirection, character.Rigidbody.linearVelocity.y);
 
         moveTimer += Time.deltaTime;
 
@@ -224,7 +224,7 @@ public abstract class AICharacterChaseState : AICharacterState
     public override void Execute()
     {
         float moveSpeed = character.MoveSpeed * MoveSpeedFactor;
-        character.Animator.SetFloat(MoveAnimSpeedFactorHash, moveSpeed / character.DefaultMoveSpeed);
+        character.Animator.SetFloat(MoveAnimSpeedFactorHash, moveSpeed);
 
         if (character.Target == null || (character.Target is ICombatable combatable && combatable.CombatSystem.IsDead))
         {
@@ -248,7 +248,7 @@ public abstract class AICharacterChaseState : AICharacterState
             }
             else if (character.IsEnemyTooLow(character.Target))
             {
-                character.Rigidbody.linearVelocity = new Vector2(moveSpeed * character.FacingDirection, character.Rigidbody.linearVelocity.y);
+                character.Rigidbody.linearVelocity = new Vector2(character.MoveForce * moveSpeed * character.FacingDirection, character.Rigidbody.linearVelocity.y);
             }
             else if (character.IsEnemyInAttackRange(character.Target))
             {
@@ -257,7 +257,7 @@ public abstract class AICharacterChaseState : AICharacterState
             else
             {
                 character.LookAt(character.Target.CenterPosition);
-                character.Rigidbody.linearVelocity = new Vector2(moveSpeed * character.FacingDirection, character.Rigidbody.linearVelocity.y);
+                character.Rigidbody.linearVelocity = new Vector2(character.MoveForce * moveSpeed * character.FacingDirection, character.Rigidbody.linearVelocity.y);
             }
         }
         else

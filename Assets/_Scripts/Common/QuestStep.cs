@@ -1,9 +1,11 @@
 ﻿using System;
+using UnityEngine;
 
 [Serializable]
 public abstract class QuestStepData
 {
     public string Description;
+    [SerializeReference, SubclassSelector] public IReward[] CompletionRewards;
 
     public abstract QuestStep CreateStep();
 }
@@ -31,12 +33,20 @@ public abstract class QuestStep
 
     public abstract void Begin();
     public abstract void End();
-    public virtual void Commit() { }
+
+    public virtual void Commit() 
+    {
+        foreach (var reward in Data.CompletionRewards)
+        {
+            reward.Grant();
+        }
+    }
+
     public abstract bool IsAchieved();
     public abstract float GetProgress();
     public abstract string GetProgressText(string format);
     public virtual string Capture() => string.Empty;
     public virtual void Restore(string data) { }
 
-    public virtual UUID GetTargetID() => quest.Publisher;
+    public virtual UUID GetObjectiveTarget() => quest.Publisher;
 }

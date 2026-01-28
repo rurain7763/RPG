@@ -10,7 +10,7 @@ public abstract class Entity : MonoBehaviour
     [SerializeField] protected float centerToFrontDistance;
     [SerializeField] protected float centerToBackDistance;
 
-    public float DefaultMoveSpeed;
+    public float MoveForce;
     public float JumpForce;
 
     public SpriteRenderer SpriteRenderer { get; private set; }
@@ -20,7 +20,6 @@ public abstract class Entity : MonoBehaviour
     public float FacingDirection => IsFacingRight ? 1f : -1f;
     public bool IsGrounded { get; private set; }
 
-    virtual public float MoveSpeed => DefaultMoveSpeed;
     public Transform CenterAnchor => centerAnchor;
     public Vector2 CenterPosition => centerAnchor.position;
     public float CenterToFrontDistance => centerToFrontDistance;

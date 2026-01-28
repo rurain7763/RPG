@@ -2579,6 +2579,7 @@ GameObject:
   - component: {fileID: 2685914674381956273}
   - component: {fileID: 7953242780649031252}
   - component: {fileID: 954267535226242876}
+  - component: {fileID: 6960411761128648635}
   m_Layer: 5
   m_Name: Text_Description
   m_TagString: Untagged
@@ -2704,6 +2705,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6960411761128648635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4286365001520480527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256361eaf8eb75c48a83ecbc2bb808f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectLanguageChange: 1
 --- !u!1 &4452923105145758785
 GameObject:
   m_ObjectHideFlags: 0
@@ -2851,9 +2865,9 @@ MonoBehaviour:
   closeAnim: {fileID: 0}
   tabController: {fileID: 7169373457914039865}
   availableQuestScroll: {fileID: 690783595030897439}
-  descriptionText: {fileID: 954267535226242876}
+  descriptionText: {fileID: 6960411761128648635}
   inProgressQuestScroll: {fileID: 5927014490466224447}
-  inProgressQuestProgressText: {fileID: 9048370418059892252}
+  inProgressQuestProgressText: {fileID: 8106023138038690248}
   completedQuestScroll: {fileID: 5002580880667512871}
 --- !u!223 &3718056238116067857
 Canvas:
@@ -4112,6 +4126,7 @@ GameObject:
   - component: {fileID: 4312362864981678784}
   - component: {fileID: 1342475574111427191}
   - component: {fileID: 9048370418059892252}
+  - component: {fileID: 8106023138038690248}
   m_Layer: 5
   m_Name: Text_Progress
   m_TagString: Untagged
@@ -4237,6 +4252,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8106023138038690248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7692054795479395268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256361eaf8eb75c48a83ecbc2bb808f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectLanguageChange: 1
 --- !u!1 &7794380819463554744
 GameObject:
   m_ObjectHideFlags: 0

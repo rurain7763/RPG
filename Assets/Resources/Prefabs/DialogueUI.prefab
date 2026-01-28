@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2161924335591403807}
   - component: {fileID: 3785198091370039405}
   - component: {fileID: 2180153317948955388}
+  - component: {fileID: 5447959638814201859}
   m_Layer: 5
   m_Name: Text_Choices
   m_TagString: Untagged
@@ -36,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 995, y: -141.285}
+  m_AnchoredPosition: {x: 995, y: -149.65}
   m_SizeDelta: {x: 1990, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7870592096422227347
@@ -73,8 +74,8 @@ MonoBehaviour:
 
     3) C'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 20abc13a31909d345979bf533387d1fc, type: 2}
+  m_sharedMaterial: {fileID: 610453754231434386, guid: 20abc13a31909d345979bf533387d1fc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -181,6 +182,19 @@ MonoBehaviour:
     appendSeconds: 0.4
   - character: ','
     appendSeconds: 0.2
+--- !u!114 &5447959638814201859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50929713439606827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256361eaf8eb75c48a83ecbc2bb808f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectLanguageChange: 1
 --- !u!1 &265521821430615504
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,8 +479,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Bob
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 20abc13a31909d345979bf533387d1fc, type: 2}
+  m_sharedMaterial: {fileID: 610453754231434386, guid: 20abc13a31909d345979bf533387d1fc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -623,6 +637,7 @@ GameObject:
   - component: {fileID: 6756079396456964113}
   - component: {fileID: 5978455272913211960}
   - component: {fileID: 3580390409167345679}
+  - component: {fileID: 2960854208082079773}
   m_Layer: 5
   m_Name: Text_Dialogue
   m_TagString: Untagged
@@ -679,8 +694,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Hello World!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 20abc13a31909d345979bf533387d1fc, type: 2}
+  m_sharedMaterial: {fileID: 610453754231434386, guid: 20abc13a31909d345979bf533387d1fc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -787,6 +802,19 @@ MonoBehaviour:
     appendSeconds: 0.4
   - character: ','
     appendSeconds: 0.2
+--- !u!114 &2960854208082079773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4194269800986804281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256361eaf8eb75c48a83ecbc2bb808f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectLanguageChange: 1
 --- !u!1 &4500123644836475917
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,7 +910,7 @@ MonoBehaviour:
   closeAnim: {fileID: 0}
   speakerImage: {fileID: 8148800538152314519}
   speakerNameText: {fileID: 7586870685017005033}
-  dialogueText: {fileID: 6756079396456964113}
+  dialogueText: {fileID: 2960854208082079773}
   dialogueTextEffector: {fileID: 3580390409167345679}
-  choicesText: {fileID: 2161924335591403807}
+  choicesText: {fileID: 5447959638814201859}
   choicesTextEffector: {fileID: 2180153317948955388}

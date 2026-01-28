@@ -12,7 +12,7 @@ public class QuestScrollItemData : InfiniteScrollData
 
 public class QuestScrollItem : InfiniteScrollItem, IPointerDownHandler
 {
-    [SerializeField, Reference("Text_Title")] private TMP_Text titleText;
+    [SerializeField, Reference("Text_Title")] private LocalizationText titleText;
 
     private QuestScrollItemData data;
 
@@ -21,7 +21,7 @@ public class QuestScrollItem : InfiniteScrollItem, IPointerDownHandler
     public override void UpdateData(InfiniteScrollData scrollData)
     {
         data = scrollData as QuestScrollItemData;
-        titleText.text = QuestData.DisplayName;
+        titleText.SetText($"{{{QuestData.DisplayName}}}");
     }
 
     public void OnPointerDown(PointerEventData eventData)

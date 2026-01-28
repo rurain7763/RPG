@@ -20,6 +20,7 @@ public class RPG : AppManager
     public static RPGUserDataSystem UserDataSys { get; private set; }
     public static LevelSystem LevelSys { get; private set; }
     public static DialogueSystem DialogueSys { get; private set; }
+    public static LocalizationSystem LocalizationSys { get; private set; }
 
     public static EventDispatcher EventDispatcher { get; private set; }
 
@@ -40,6 +41,7 @@ public class RPG : AppManager
         UserDataSys = GetSystem<RPGUserDataSystem>();
         LevelSys = GetSystem<LevelSystem>();
         DialogueSys = GetSystem<DialogueSystem>();
+        LocalizationSys = GetSystem<LocalizationSystem>();
 
         EventDispatcher = new EventDispatcher();
 

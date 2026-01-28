@@ -3,9 +3,10 @@ using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(TMP_Text))]
-public class LocalizationBehaviour : MonoBehaviour
+public class LocalizationText : MonoBehaviour
 {
     [SerializeField] private bool detectLanguageChange = true;
+    [SerializeField] private bool useLanguageFont = true;
 
     private TMP_Text tmpText;
     private LocalizationSystem localizationSys;
@@ -29,10 +30,10 @@ public class LocalizationBehaviour : MonoBehaviour
 
         if (detectLanguageChange)
         {
-            localizationSys.OnLanguageChanged += OnLanguageChanged;
+            localizationSys.OnLanguageChanged += Refresh;
         }
 
-        SetLocalizationText(originalText);
+        Refresh();
     }
 
     private void OnDisable()
@@ -44,16 +45,30 @@ public class LocalizationBehaviour : MonoBehaviour
 
         if (detectLanguageChange)
         {
-            localizationSys.OnLanguageChanged -= OnLanguageChanged;
+            localizationSys.OnLanguageChanged -= Refresh;
         }
     }
 
-    private void OnLanguageChanged()
+    public void Refresh()
     {
-        SetLocalizationText(originalText);
+        if (localizationSys == null)
+        {
+            return;
+        }
+
+        if (useLanguageFont)
+        {
+            var expectedFont = localizationSys.CurrentFont;
+            if (expectedFont != null && tmpText.font != expectedFont)
+            {
+                tmpText.font = expectedFont;
+            }
+        }
+
+        SetText(originalText);
     }
 
-    public void SetLocalizationText(string text)
+    public void SetText(string text)
     {
         originalText = text;
 
@@ -83,7 +98,6 @@ public class LocalizationBehaviour : MonoBehaviour
             if (text[i] == '{')
             {
                 stk++;
-                i++;
             }
             else if (text[i] == '}')
             {
@@ -128,5 +142,11 @@ public class LocalizationBehaviour : MonoBehaviour
         }
 
         return builder.ToString();
+    }
+
+    public void Clear()
+    {
+        tmpText.text = string.Empty;
+        originalText = string.Empty;
     }
 }
