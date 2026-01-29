@@ -113,6 +113,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "DomainExpansion",
+                    "type": "Button",
+                    "id": "328a0dab-cc84-4a47-80e6-229130c4918a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -333,6 +342,17 @@
                     "processors": "",
                     "groups": ";Keyboard & Mouse",
                     "action": "QuickItemSlot_2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0274958f-45ef-4238-b0fc-78965d0d37dc",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard & Mouse",
+                    "action": "DomainExpansion",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

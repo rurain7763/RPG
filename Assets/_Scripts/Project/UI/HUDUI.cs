@@ -4,8 +4,8 @@ using UnityEngine;
 public class HUDUI : StaticUI
 {
     [SerializeField, Reference("Hpbar")] private HpBar hpBar;
-    [SerializeField, Reference("")] private QuickItemEquipSlotDisplayer[] quickItemEquipSlotDisplayers;
-    [SerializeField, Reference("")] private SkillEquipSlotDisplayer[] skillEquipSlotDisplayers;
+    [SerializeField, Reference()] private QuickItemEquipSlotDisplayer[] quickItemEquipSlotDisplayers;
+    [SerializeField, Reference()] private SkillEquipSlotDisplayer[] skillEquipSlotDisplayers;
     [SerializeField, Reference("EnemyHpDisplayers")] EnemyHpDisplayer[] enemyHpDisplayers;
 
     private Player player;

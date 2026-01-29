@@ -207,11 +207,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6f6a87276716149a0a6f6a2a624fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionOrigin: {fileID: 6812257093231855991}
-  detectionRadius: 1
   targetLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 704
+  detectionOrigin: {fileID: 6812257093231855991}
+  maxDetectedTargets: 20
+  detectionRadius: 1
 --- !u!114 &3702690592519777696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,8 +225,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6f6a87276716149a0a6f6a2a624fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionOrigin: {fileID: 6812257093231855991}
-  detectionRadius: 5
   targetLayer:
     serializedVersion: 2
     m_Bits: 512
+  detectionOrigin: {fileID: 6812257093231855991}
+  maxDetectedTargets: 20
+  detectionRadius: 5

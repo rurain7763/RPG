@@ -199,6 +199,15 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DomainExpansion"",
+                    ""type"": ""Button"",
+                    ""id"": ""328a0dab-cc84-4a47-80e6-229130c4918a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -421,6 +430,17 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""QuickItemSlot_2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0274958f-45ef-4238-b0fc-78965d0d37dc"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard & Mouse"",
+                    ""action"": ""DomainExpansion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -458,6 +478,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         m_Player_SpawnEcho = m_Player.FindAction("SpawnEcho", throwIfNotFound: true);
         m_Player_QuickItemSlot_1 = m_Player.FindAction("QuickItemSlot_1", throwIfNotFound: true);
         m_Player_QuickItemSlot_2 = m_Player.FindAction("QuickItemSlot_2", throwIfNotFound: true);
+        m_Player_DomainExpansion = m_Player.FindAction("DomainExpansion", throwIfNotFound: true);
     }
 
     ~@PlayerInputSystem()
@@ -550,6 +571,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SpawnEcho;
     private readonly InputAction m_Player_QuickItemSlot_1;
     private readonly InputAction m_Player_QuickItemSlot_2;
+    private readonly InputAction m_Player_DomainExpansion;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -609,6 +631,10 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/QuickItemSlot_2".
         /// </summary>
         public InputAction @QuickItemSlot_2 => m_Wrapper.m_Player_QuickItemSlot_2;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/DomainExpansion".
+        /// </summary>
+        public InputAction @DomainExpansion => m_Wrapper.m_Player_DomainExpansion;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -671,6 +697,9 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
             @QuickItemSlot_2.started += instance.OnQuickItemSlot_2;
             @QuickItemSlot_2.performed += instance.OnQuickItemSlot_2;
             @QuickItemSlot_2.canceled += instance.OnQuickItemSlot_2;
+            @DomainExpansion.started += instance.OnDomainExpansion;
+            @DomainExpansion.performed += instance.OnDomainExpansion;
+            @DomainExpansion.canceled += instance.OnDomainExpansion;
         }
 
         /// <summary>
@@ -718,6 +747,9 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
             @QuickItemSlot_2.started -= instance.OnQuickItemSlot_2;
             @QuickItemSlot_2.performed -= instance.OnQuickItemSlot_2;
             @QuickItemSlot_2.canceled -= instance.OnQuickItemSlot_2;
+            @DomainExpansion.started -= instance.OnDomainExpansion;
+            @DomainExpansion.performed -= instance.OnDomainExpansion;
+            @DomainExpansion.canceled -= instance.OnDomainExpansion;
         }
 
         /// <summary>
@@ -855,5 +887,12 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnQuickItemSlot_2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "DomainExpansion" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDomainExpansion(InputAction.CallbackContext context);
     }
 }

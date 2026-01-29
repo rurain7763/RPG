@@ -163,11 +163,6 @@ public class TimeShard : RPGSkill, ICharagable
             return true;
         }
 
-        if (IsOnCooldown || CurrentCharge <= 0)
-        {
-            return false;
-        }
-
-        return true;
+        return !IsOnCooldown && IsUnlocked() && Helper.HasComponentInChildren<Entity>(user) && CurrentCharge > 0;
     }
 }

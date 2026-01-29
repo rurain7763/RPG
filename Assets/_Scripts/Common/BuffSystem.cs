@@ -11,6 +11,8 @@ public enum BuffCategory : byte
 
 public abstract class Buff
 {
+    public const float InfiniteDuration = -1f;
+
     public uint ID { get; protected set; } // if higher ID buffs should be applied first
     public BuffCategory Category { get; protected set; }
     public float Duration
@@ -52,7 +54,7 @@ public abstract class Buff
     public event Action OnDurationChanged;
     public event Action OnStackCountChanged;
 
-    public Buff(uint id, BuffCategory category, float duration = -1f, int stackCount = 1, object source = null)
+    public Buff(uint id, BuffCategory category, float duration = InfiniteDuration, int stackCount = 1, object source = null)
     {
         ID = id;
         Category = category;
@@ -124,6 +126,28 @@ public class BuffSystem
 
         newBuff.OnApply();
         buffList.AddLast(newBuff);
+    }
+
+    public void RemoveBuff(Buff buffToRemove)
+    {
+        int listIndex = (int)buffToRemove.ID;
+        if (buffLists.Count <= listIndex)
+        {
+            return;
+        }
+        var buffList = buffLists[listIndex];
+        LinkedListNode<Buff> node = buffList.First;
+        while (node != null)
+        {
+            Buff buff = node.Value;
+            if (buff == buffToRemove)
+            {
+                buff.OnExpire();
+                buffList.Remove(node);
+                return;
+            }
+            node = node.Next;
+        }
     }
 
     public void RemoveAllBuffs(Predicate<Buff> match)

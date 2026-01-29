@@ -14,22 +14,22 @@ public abstract class RPGBuff : Buff
 
 public class Frozen : RPGBuff
 {
-    private AddValueModifier activeSpeedModifier;
+    private AddValueModifier attackSpeedModifier;
 
     public Frozen(float duration, ICombatable source) 
         : base(BuffID.Frozen, BuffCategory.Negative, duration, 1, source)
     {
-        activeSpeedModifier = new AddValueModifier(-0.23f);
+        attackSpeedModifier = new AddValueModifier(-0.23f);
     }
 
     public override void OnApply()
     {
-        Owner.StatSystem.ActiveSpeed.AddModifier(activeSpeedModifier);
+        Owner.StatSystem.AttackSpeed.AddModifier(attackSpeedModifier);
     }
 
     public override void OnExpire()
     {
-        Owner.StatSystem.ActiveSpeed.RemoveModifier(activeSpeedModifier);
+        Owner.StatSystem.AttackSpeed.RemoveModifier(attackSpeedModifier);
     }
 
     public override bool OnDuplicate(Buff newBuff)
@@ -174,6 +174,42 @@ public class Slow : RPGBuff
             slowRate = other.slowRate;
             moveSpeedModifier = new AddValueModifier(-slowRate);
             combatable.StatSystem.MoveSpeed.AddModifier(moveSpeedModifier);
+        }
+
+        return true;
+    }
+}
+
+public class Exhausted : RPGBuff
+{
+    private AddValueModifier activeSpeedModifier;
+
+    public Exhausted(float duration, float amount, ICombatable source) 
+        : base(BuffID.Exhausted, BuffCategory.Negative, duration, 1, source)
+    {
+        activeSpeedModifier = new AddValueModifier(-amount);
+    }
+
+    public override void OnApply()
+    {
+        Owner.StatSystem.ActiveSpeed.AddModifier(activeSpeedModifier);
+    }
+
+    public override void OnExpire()
+    {
+        Owner.StatSystem.ActiveSpeed.RemoveModifier(activeSpeedModifier);
+    }
+
+    public override bool OnDuplicate(Buff newBuff)
+    {
+        Duration = Mathf.Max(Duration, newBuff.Duration);
+
+        var other = newBuff as Exhausted;
+        if (other.activeSpeedModifier.Value < activeSpeedModifier.Value)
+        {
+            Owner.StatSystem.ActiveSpeed.RemoveModifier(activeSpeedModifier);
+            activeSpeedModifier = new AddValueModifier(other.activeSpeedModifier.Value);
+            Owner.StatSystem.ActiveSpeed.AddModifier(activeSpeedModifier);
         }
 
         return true;

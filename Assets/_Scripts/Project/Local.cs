@@ -76,6 +76,7 @@ public enum BuffID : uint
     IncreaseDamage,
     Slow,
     IncreaseAttackSpeed,
+    Exhausted
 }
 
 [Flags]
@@ -119,6 +120,13 @@ public enum TimeEchoUpgradeFlag : uint
     HealWisp = 1 << 4,
     CleanseWisp = 1 << 5,
     CooldownWisp = 1 << 6,
+}
+
+[Flags]
+public enum DomainExpansionUpgradeFlag : uint
+{
+    EchoSpam = 1 << 1,
+    ShardSpam = 1 << 2,
 }
 
 public enum StatType

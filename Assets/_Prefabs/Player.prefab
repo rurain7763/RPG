@@ -115,7 +115,6 @@ MonoBehaviour:
   centerToFeetDistance: 1.05
   centerToFrontDistance: 0.5
   centerToBackDistance: 0.45
-  DefaultMoveSpeed: 8
   MoveForce: 8
   JumpForce: 12
   interactableLayer:
@@ -286,6 +285,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 631ad8d0f8023244ba57a76559174dab, type: 2}
   - {fileID: 11400000, guid: 001aa1d985606f846acc76858713dfe7, type: 2}
   - {fileID: 11400000, guid: b7c9a0f0c91cdb34dbda7785586a0a97, type: 2}
+  - {fileID: 11400000, guid: 4ed5e310f58fa344bb39c62979a42a20, type: 2}
 --- !u!50 &2007778374972379477
 Rigidbody2D:
   serializedVersion: 5

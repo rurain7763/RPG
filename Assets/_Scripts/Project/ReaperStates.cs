@@ -275,6 +275,7 @@ public class ReaperSpellState : AICharacterState
 
     public override void Execute()
     {
+        character.Animator.SetFloat(ActiveAnimSpeedFactorHash, character.StatSystem.ActiveSpeed.FinalValue);
         if (skill.IsComplete() && Helper.GetAnimationLoopCount(character.Animator, SpellAnimHash) == skill.MaxSpellCount)
         {
             stateMachine.ChangeState<ReaperIdleState>();
@@ -284,6 +285,7 @@ public class ReaperSpellState : AICharacterState
     public override void Exit()
     {
         skill.Cleanup();
+        character.Animator.SetFloat(ActiveAnimSpeedFactorHash, 1f);
         character.AnimationEventReciever.OnEventTriggered -= skill.HandleEvents;
     }
 }

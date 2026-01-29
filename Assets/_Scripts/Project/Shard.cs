@@ -11,7 +11,6 @@ public class Shard : MonoBehaviour
     [SerializeField] private float detonationTime;
     [SerializeField] private float speed;
 
-
     private float spawnTime;
     private Transform closestTarget;
 
@@ -20,6 +19,8 @@ public class Shard : MonoBehaviour
     public Entity Owner { get; set; }
     public Vector2 GroundPosition => groundAnchor.position;
     public bool MoveToClosestEnemy { get; set; } = false;
+    public bool MoveToManualTarget { get; set; } = false;
+    public Entity ManualTarget { get; set; }
     public bool AutoExplode { get; set; } = true;
 
     private void Start()
@@ -34,8 +35,20 @@ public class Shard : MonoBehaviour
             return;
         }
 
+        HandleMoveToManualTarget();
         HandleMoveToClosestTarget();
         HandleExplosion();
+    }
+
+    private void HandleMoveToManualTarget()
+    {
+        if (!MoveToManualTarget || ManualTarget == null)
+        {
+            return;
+        }
+
+        Vector2 newPosition = Vector2.MoveTowards(transform.position, ManualTarget.CenterPosition, speed * Time.deltaTime);
+        transform.position = newPosition;
     }
 
     private void HandleMoveToClosestTarget()
@@ -70,6 +83,17 @@ public class Shard : MonoBehaviour
         }
     }
 
+    private void HandleExplosion()
+    {
+        var targets = explosionDetector.DetectTargets();
+
+        if (targets.Count > 0 || Time.time - spawnTime >= detonationTime)
+        {
+            Explode(targets);
+            Destroy(gameObject);
+        }
+    }
+
     private void Explode(IReadOnlyList<Collider2D> colliders)
     {
         if (Owner is ICombatable combatable)
@@ -91,17 +115,6 @@ public class Shard : MonoBehaviour
 
         var vfx = RPG.VFXSys.SpawnVFX(Local.GetVFXPath(explosionVFX));
         vfx.transform.position = transform.position;
-    }
-
-    private void HandleExplosion()
-    {
-        var targets = explosionDetector.DetectTargets();
-
-        if (targets.Count > 0 || Time.time - spawnTime >= detonationTime)
-        {
-            Explode(targets);
-            Destroy(gameObject);
-        }
     }
 
     public void ExplodeManually(float delay = 0)

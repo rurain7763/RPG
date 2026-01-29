@@ -14,9 +14,6 @@ public class Dash : RPGSkill
     public Dash(DashData data) 
         : base(data)
     {
-        // TODO: Full Unlock upgrade for test
-        //AddUpgrade(SkillUpgradeFlag.Default | SkillUpgradeFlag.Dash_DejaVu);
-        //AddUpgrade(SkillUpgradeFlag.Default | SkillUpgradeFlag.Dash_ShardOnStart | SkillUpgradeFlag.Dash_ShardOnEnd);
     }
 
     protected override void StartUse(GameObject user, Arguments parameters = null)

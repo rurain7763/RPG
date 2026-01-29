@@ -11,6 +11,7 @@ public abstract class AICharacterState : State
 
     protected static readonly int MoveAnimSpeedFactorHash = Animator.StringToHash("MoveAnimSpeedFactor");
     protected static readonly int AttackAnimSpeedFactorHash = Animator.StringToHash("AttackAnimSpeedFactor");
+    protected static readonly int ActiveAnimSpeedFactorHash = Animator.StringToHash("ActiveAnimSpeedFactor");
 
     protected AICharacter character;
 

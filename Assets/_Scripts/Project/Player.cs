@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : Entity, ICombatable, ISkillUser, IHasInventory
 {
@@ -143,8 +144,9 @@ public class Player : Entity, ICombatable, ISkillUser, IHasInventory
         if (!BlockInput)
         {
             HandleInteractInput();
-            HandlePlantShardInput();
-            HandleSpawnEchoInput();
+            HandleSkillInput<TimeShard>(InputSystem.Player.PlantShard);
+            HandleSkillInput<TimeEcho>(InputSystem.Player.SpawnEcho);
+            HandleSkillInput<DomainExpansion>(InputSystem.Player.DomainExpansion);
             HandleQuickItemSlotInput();
         }
 
@@ -178,36 +180,20 @@ public class Player : Entity, ICombatable, ISkillUser, IHasInventory
         }
     }
 
-    private void HandlePlantShardInput()
+    private void HandleSkillInput<T>(InputAction inputAction) where T : RPGSkill
     {
-        if (!InputSystem.Player.PlantShard.triggered)
+        if (!inputAction.triggered)
         {
             return;
         }
 
-        if (!SkillSystem.TryGetSkill<TimeShard>(out var timeShard) || !timeShard.CanUse(gameObject))
+        if (!SkillSystem.TryGetSkill<T>(out var skill) || !skill.CanUse(gameObject))
         {
             return;
         }
 
-        timeShard.SetToCooldown();
-        timeShard.Use(gameObject);
-    }
-
-    private void HandleSpawnEchoInput()
-    {
-        if (!InputSystem.Player.SpawnEcho.triggered)
-        {
-            return;
-        }
-
-        if (!SkillSystem.TryGetSkill<TimeEcho>(out var timeEcho) || !timeEcho.CanUse(gameObject))
-        {
-            return;
-        }
-
-        timeEcho.SetToCooldown();
-        timeEcho.Use(gameObject);
+        skill.SetToCooldown();
+        skill.Use(gameObject);
     }
 
     private void HandleQuickItemSlotInput()

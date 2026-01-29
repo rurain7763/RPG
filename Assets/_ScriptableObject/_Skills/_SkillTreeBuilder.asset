@@ -139,6 +139,24 @@ MonoBehaviour:
     ParentIndices: 12000000
     ChildIndices: 
     Position: {x: 909, y: 2292}
+  - Skill: {fileID: 11400000, guid: 4ed5e310f58fa344bb39c62979a42a20, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 
+    ChildIndices: 1600000017000000
+    Position: {x: 216, y: 2567}
+  - Skill: {fileID: 11400000, guid: c539ef7c07468794eb9855b883d353df, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 15000000
+    ChildIndices: 
+    Position: {x: 570, y: 2497}
+  - Skill: {fileID: 11400000, guid: 3c8bdcaf2c3bedc42a90ad358173e0eb, type: 2}
+    Certificate:
+      rid: 6168998482154094705
+    ParentIndices: 15000000
+    ChildIndices: 
+    Position: {x: 573, y: 2712}
   references:
     version: 2
     RefIds:
