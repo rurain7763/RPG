@@ -29,6 +29,7 @@ public enum LevelID
     Level_0,
     Level_1,
     Level_2,
+    Level_3,
 }
 
 public enum VFXID
@@ -43,6 +44,7 @@ public enum VFXID
     ShardExplosion,
     Smoke,
     IceBlast,
+    LevelUp,
 }
 
 public enum BGMID
@@ -58,6 +60,8 @@ public enum SFXID
     SwordMiss,
     FireBurn,
     ButtonClick,
+    LevelUp,
+    Teleport,
 }
 
 public enum ElementType
@@ -235,13 +239,6 @@ public class PortalSystemDTO
 }
 
 [Serializable]
-public class ProgressSystemDTO
-{
-    public LevelID LastLevelID;
-    public Vector2 LastPosition;
-}
-
-[Serializable]
 public class OptionsSystemDTO
 {
     public float BGMVolume = 1f;
@@ -261,6 +258,7 @@ public class UserPlayDataDTO
     public ProgressSystemDTO ProgressData = new();
     public OptionsSystemDTO OptionsData = new();
     public SkillSystemDTO SkillSystemData = new();
+    public PlayLevelSystemDTO PlayLevelData = new();
 }
 
 public static class Local
