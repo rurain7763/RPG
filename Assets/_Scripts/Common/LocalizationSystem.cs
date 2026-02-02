@@ -1,5 +1,4 @@
-﻿using AYellowpaper.SerializedCollections;
-using System;
+﻿using System;
 using TMPro;
 using UnityEngine;
 

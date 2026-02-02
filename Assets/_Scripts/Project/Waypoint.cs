@@ -9,6 +9,7 @@ public class Waypoint : MonoBehaviour, IInteractable
 
     public void Interact(Player player)
     {
+        RPG.AudioSys.PlaySFX(Local.GetSFXPath(SFXID.Teleport), player.transform.position);
         RPG.LoadLevel(levelID, new CheckpointSpawnPolicy());
     }
 

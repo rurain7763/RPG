@@ -83,7 +83,16 @@ public class EntityCombatSystem : MonoBehaviour
 
     public float HealthRegeneration { get; set; }
 
-    public float CurrentHealth => currentHealth;
+    public float CurrentHealth
+    {
+        get => currentHealth;
+        set
+        {
+            currentHealth = Mathf.Clamp(value, 0, MaxHealth);
+            OnHealthChanged?.Invoke();
+        }
+    }
+
     public bool IsDead => currentHealth <= 0;
     public bool IsKnockbacked { get; private set; }
     public bool IsAirborne { get; private set; }
@@ -94,11 +103,11 @@ public class EntityCombatSystem : MonoBehaviour
     public bool ActiveAirborneImmunity { get; set; }
     public bool ActiveStunImmunity { get; set; }
 
-    public event Action OnDie;
-    public event Action OnHealthChanged;
+    public event Action<Damage> OnDie;
     public event Action<Damage> OnDealDamage;
     public event Action<Damage> OnTakeDamage;
     public event Action<Healing> OnTakeHeal;
+    public event Action OnHealthChanged;
 
     private void Awake()
     {
@@ -185,12 +194,6 @@ public class EntityCombatSystem : MonoBehaviour
         OnHealthChanged?.Invoke();
     }
 
-    public void Die()
-    {
-        currentHealth = 0;
-        OnDie?.Invoke();
-    }
-
     public void TakeDamage(Damage damage)
     {
         if (IsDead)
@@ -209,7 +212,7 @@ public class EntityCombatSystem : MonoBehaviour
 
         if (IsDead)
         {
-            OnDie?.Invoke();
+            OnDie?.Invoke(damage);
         }
     }
 

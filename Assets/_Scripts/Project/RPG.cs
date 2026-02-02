@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 public class RPG : AppManager
 {
@@ -10,6 +9,8 @@ public class RPG : AppManager
     public static readonly int MaxMerchantItemCount = 50;
 
     public static readonly float ArmorConstant = 100f;
+
+    public static readonly int MaxPlayerLevel = 100;
 
     public static UISystem UISys { get; private set; }
     public static ScreenEffectSystem ScreenEffectSys { get; private set; }
@@ -52,53 +53,6 @@ public class RPG : AppManager
     private void Update()
     {
         EventDispatcher.PollEvents();
-    }
-
-    public static Checkpoint GetLastCheckpoint(RPGLevel level, Player player)
-    {
-        var playDataTable = UserDataSys.GetTable<UserPlayDataTable>(player.UserID);
-        if (playDataTable == null)
-        {
-            Logger.Warn($"Failed to retrieve UserPlayDataTable for user ID {player.UserID}");
-            return null;
-        }
-
-        foreach (var checkpoint in level.transform.GetComponentsInChildren<Checkpoint>())
-        {
-            if (checkpoint.CheckpointID == playDataTable.Checkpoint.LastCheckpointID)
-            {
-                return checkpoint;
-            }
-        }
-
-        return null;
-    }
-
-    public static bool HasLastCheckpointInLevel(RPGLevel level, Player player)
-    {
-        return GetLastCheckpoint(level, player) != null;
-    }
-
-    public static void TeleportPlayerToLastCheckpoint(RPGLevel level, Player player)
-    {
-        var lastCheckpoint = GetLastCheckpoint(level, player);
-        if (lastCheckpoint == null)
-        {
-            Logger.Warn("No last checkpoint found in the level.");
-            return;
-        }
-
-        player.transform.position = lastCheckpoint.transform.position;  
-    }
-
-    public static void TeleportPlayerToPortal(Player player)
-    {
-        var allPortals = GameObject.FindObjectsByType<Portal>(FindObjectsSortMode.None);
-        foreach ( var portal in allPortals )
-        {
-            player.transform.position = portal.transform.position;
-            return;
-        }
     }
 
     public static Damage CalcDamage(ICombatable attacker, ICombatable defender)

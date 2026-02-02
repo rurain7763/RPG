@@ -65,13 +65,13 @@ MonoBehaviour:
   centerToFeetDistance: 0.47
   centerToFrontDistance: 0.85
   centerToBackDistance: 0.78
-  DefaultMoveSpeed: 0.8
   MoveForce: 0.8
   JumpForce: 12
+  data: {fileID: 11400000, guid: fe440b677ed3f7f45b5839b5388a1535, type: 2}
   HpBarAnchor: {fileID: 3845755503632060584}
+  Level: 1
   VisionRange: 10
   AttackRange: 1
-  DefaultAttackSpeed: 1
   SpawnSlimeOnDeadPrefab: {fileID: 1075959372962352806}
   RemainSplitCountOnDeath: 2
   SpawnSlimeCountOnSplit: 2

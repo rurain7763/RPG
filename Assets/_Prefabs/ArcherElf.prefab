@@ -65,13 +65,13 @@ MonoBehaviour:
   centerToFeetDistance: 1.11
   centerToFrontDistance: 0.35
   centerToBackDistance: 0.35
-  DefaultMoveSpeed: 1.8
   MoveForce: 1.8
   JumpForce: 15
+  data: {fileID: 11400000, guid: fe440b677ed3f7f45b5839b5388a1535, type: 2}
   HpBarAnchor: {fileID: 3845755503632060584}
+  Level: 1
   VisionRange: 10
   AttackRange: 7
-  DefaultAttackSpeed: 1
   ArrowPrefab: {fileID: 2795607393680052574, guid: 5d02a9cbbdf3a7f4b8e1260bf21ec6c1, type: 3}
 --- !u!114 &1074097977681933643
 MonoBehaviour:

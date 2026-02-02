@@ -4,7 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class TimeText : MonoBehaviour
 {
-    [SerializeField]
     public enum TimeFormat
     {
         Seconds,

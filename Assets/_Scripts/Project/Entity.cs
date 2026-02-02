@@ -38,7 +38,7 @@ public abstract class Entity : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        IncludedLevel.UnregisterEntity(this);
+        IncludedLevel?.UnregisterEntity(this);
     }
 
     public virtual void Begin()

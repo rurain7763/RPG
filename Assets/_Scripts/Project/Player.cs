@@ -21,6 +21,7 @@ public class Player : Entity, ICombatable, ISkillUser, IHasInventory
     public InventorySystem InventorySystem { get; private set; }
     public EquipmentSystem EquipmentSystem { get; private set; }
     public EntityQuickItemSystem QuickItemSystem { get; private set; }
+    public PlayLevelSystem PlayLevelSystem { get; private set; }
 
     public float MoveSpeed
     {
@@ -85,12 +86,6 @@ public class Player : Entity, ICombatable, ISkillUser, IHasInventory
 
         SkillSystem = GetComponent<EntitySkillSystem>();
 
-        InventorySystem = new InventorySystem();
-
-        EquipmentSystem = new EquipmentSystem();
-
-        QuickItemSystem = new EntityQuickItemSystem(this);
-
         stateMachine = new StateMachine();
         stateMachine.AddState<PlayerIdle>(this);
         stateMachine.AddState<PlayerMove>(this);
@@ -125,11 +120,9 @@ public class Player : Entity, ICombatable, ISkillUser, IHasInventory
     {
         base.Begin();
 
-        SkillSystem.Begin();
+        PlayLevelSystem.OnLevelChanged += HandleLevelChanged;
 
-        CombatSystem.MaxHealth = StatSystem.TotalHealth.FinalValue;
-        CombatSystem.HealthRegeneration = StatSystem.HealthRegeneration.FinalValue;
-        CombatSystem.SetHealthToMax();
+        SkillSystem.Begin();
 
         StatSystem.TotalHealth.OnStatChanged += () => CombatSystem.MaxHealth = StatSystem.TotalHealth.FinalValue;
         StatSystem.HealthRegeneration.OnStatChanged += () => CombatSystem.HealthRegeneration = StatSystem.HealthRegeneration.FinalValue;
@@ -163,6 +156,19 @@ public class Player : Entity, ICombatable, ISkillUser, IHasInventory
         base.End();
 
         SkillSystem.End();
+
+        PlayLevelSystem.OnLevelChanged -= HandleLevelChanged;
+    }
+
+    private void HandleLevelChanged()
+    {
+        if (SkillSystem.LinkedSkillSystem != null)
+        {
+            SkillSystem.LinkedSkillSystem.SkillPoints += 1;
+        }
+
+        RPG.VFXSys.SpawnVFX(Local.GetVFXPath(VFXID.LevelUp), transform);
+        RPG.AudioSys.PlaySFX(Local.GetSFXPath(SFXID.LevelUp), transform.position);
     }
 
     private void HandleInteractInput()
@@ -211,6 +217,12 @@ public class Player : Entity, ICombatable, ISkillUser, IHasInventory
     public void Possess(ulong userID)
     {
         var playData = RPG.UserDataSys.GetTable<UserPlayDataTable>(userID);
+
+        PlayLevelSystem = playData.PlayLevelSys;
+
+        CombatSystem.MaxHealth = StatSystem.TotalHealth.FinalValue;
+        CombatSystem.CurrentHealth = playData.Progress.RemainHealth;
+        CombatSystem.HealthRegeneration = StatSystem.HealthRegeneration.FinalValue;
 
         InventorySystem = playData.Inventory;
 

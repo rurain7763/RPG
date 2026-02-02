@@ -4,7 +4,10 @@ public abstract class AICharacter : Entity, ICombatable
 {
     private static readonly int YVelocityAnimHash = Animator.StringToHash("yVelocity");
 
+    [SerializeField] private AICharacterData data;
+
     public Transform HpBarAnchor;
+    public int Level = 1;
     public float VisionRange = 5f;
     public float AttackRange = 1.5f;
 
@@ -37,6 +40,8 @@ public abstract class AICharacter : Entity, ICombatable
     private HpBarPool hpBarPool;
     private HpBar hpBar;
 
+    public AICharacterData Data => data;
+
     public virtual Entity Target
     {
         get => target;
@@ -68,6 +73,8 @@ public abstract class AICharacter : Entity, ICombatable
     {
         base.OnDestroy();
 
+        CombatSystem.OnDie -= HandleOnDie;
+
         if (hpBar != null)
         {
             hpBarPool.ReleaseObject(hpBar);
@@ -94,6 +101,23 @@ public abstract class AICharacter : Entity, ICombatable
         hpBar.SetHp(CombatSystem.CurrentHealth, CombatSystem.MaxHealth);
         CombatSystem.OnHealthChanged += () => hpBar.SetHp(CombatSystem.CurrentHealth, CombatSystem.MaxHealth);
         hpBar.GetComponent<WorldToUIFollower>().SetAnchor(HpBarAnchor);
+
+        CombatSystem.OnDie += HandleOnDie;
+    }
+
+    private void HandleOnDie(Damage damage)
+    {
+        if (hpBar != null)
+        {
+            hpBarPool.ReleaseObject(hpBar);
+            hpBar = null;
+        }
+
+        if (damage.Source.Owner is Player player)
+        {
+            int expReward = data.GetExp(Level);
+            player.PlayLevelSystem.AddExp(expReward);
+        }
     }
 
     public sealed override void Tick(float delta)
@@ -115,6 +139,8 @@ public abstract class AICharacter : Entity, ICombatable
     public override void End()
     {
         base.End();
+
+        CombatSystem.OnDie -= HandleOnDie;
 
         if (hpBar != null)
         {

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f739bc72d99e8744395298d733a1bc70
+guid: 620b3ce374e85e44182447ea0d0c1dc3
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -107,8 +107,8 @@ TextureImporter:
         y: 0
         width: 18
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.87, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4d36e10449fcbd14bbd95cb72fc9b606
     internalID: 0
     vertices: []
     indices: 

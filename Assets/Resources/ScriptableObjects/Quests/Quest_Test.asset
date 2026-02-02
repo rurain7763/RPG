@@ -32,10 +32,7 @@ MonoBehaviour:
         Description: q_5713_s0_desc
         CompletionRewards: []
         EnemyType:
-          GuidAssignmentFailed: 0
-          GUID: 03fab9b5fa9d6904d8e6c82e91ce538f
-          _typeNameAndAssembly: SkeletonKnight, Assembly-CSharp
-          _suppressLogs: 0
+          typeReference: SkeletonKnight, Assembly-CSharp
         RequiredKillCount: 1
     - rid: 6168998643423773508
       type: {class: ItemReward, ns: , asm: Assembly-CSharp}

@@ -67,13 +67,13 @@ MonoBehaviour:
   centerToFeetDistance: 0.94
   centerToFrontDistance: 0.48
   centerToBackDistance: 0.49
-  DefaultMoveSpeed: 1
   MoveForce: 1
   JumpForce: 12
+  data: {fileID: 11400000, guid: fe440b677ed3f7f45b5839b5388a1535, type: 2}
   HpBarAnchor: {fileID: 3845755503632060584}
+  Level: 1
   VisionRange: 8
   AttackRange: 1.75
-  DefaultAttackSpeed: 1
 --- !u!114 &1074097977681933643
 MonoBehaviour:
   m_ObjectHideFlags: 0

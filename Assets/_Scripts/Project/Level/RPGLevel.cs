@@ -15,6 +15,7 @@ public class RPGLevel : Level
 
     public LevelID LevelID => levelID;
     public LevelID NearestTownLevelID => nearestTownLevelID;
+    public Vector2 PlayerStartPosition => player.transform.position;
     public RPGLevelEnvironment Environment => levelSystem.Environment as RPGLevelEnvironment;
 
     public override void Enter()
@@ -22,8 +23,8 @@ public class RPGLevel : Level
         RPG.LocalPlayer = player;
         Environment.ApplySpawnPolicy(this, player);
         player.Possess(RPG.UserDataSys.CurrentUUID);
-        player.Begin();
         player.CombatSystem.OnDie += OnPlayerDie;
+        player.Begin();
 
         foreach (var entity in GetComponentsInChildren<Entity>())
         {
@@ -33,7 +34,7 @@ public class RPGLevel : Level
             }
         }
 
-        RPG.UserDataSys.OnBeforeSaveUserDatas += OnBeforeSaveUserDatas;
+        RPG.UserDataSys.OnBeforeSaveUserDatas += SaveProgres;
     }
 
     public override void Execute(float deltaTime)
@@ -70,17 +71,40 @@ public class RPGLevel : Level
 
     public override void Exit()
     {
-        RPG.UserDataSys.OnBeforeSaveUserDatas -= OnBeforeSaveUserDatas;
+        SaveProgres();
+
+        RPG.UserDataSys.OnBeforeSaveUserDatas -= SaveProgres;
+
+        foreach (var entity in entities)
+        {
+            if (entity != null && entity != player)
+            {
+                entity.End();
+            }
+        }
 
         entities.Remove(player);
         player.CombatSystem.OnDie -= OnPlayerDie;
+        player.End();
         player.Unpossess();
     }
 
-    private void OnBeforeSaveUserDatas()
+    private void SaveProgres()
     {
         var progress = RPG.UserDataSys.PlayData.Progress;
-        progress.SetProgress(levelID, player.transform.position);
+
+        if (!player.CombatSystem.IsDead)
+        {
+            progress.LastLevelID = levelID;
+            progress.LastPosition = player.transform.position;
+            progress.RemainHealth = player.CombatSystem.CurrentHealth;
+        }
+        else
+        {
+            progress.LastLevelID = nearestTownLevelID;
+            progress.LastPosition = Vector2.zero;
+            progress.RemainHealth = player.CombatSystem.MaxHealth;
+        }
     }
 
     public void RegisterEntity(Entity entity)
@@ -98,7 +122,7 @@ public class RPGLevel : Level
         Environment.PlayBGM(defaultBgmID);
     }
 
-    private void OnPlayerDie()
+    private void OnPlayerDie(Damage damage)
     {
         var ui = RPG.UISys.OpenPopup<DeathUI>();
         ui.Setup(this, player);

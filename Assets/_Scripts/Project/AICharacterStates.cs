@@ -393,7 +393,8 @@ public abstract class AICharacterStunnedState : AICharacterState
 
 public abstract class AICharacterDeadState : AICharacterState
 {
-    public AICharacterDeadState(AICharacter character) : base(character)
+    public AICharacterDeadState(AICharacter character) 
+        : base(character)
     {
     }
 

@@ -1,5 +1,4 @@
-﻿using AYellowpaper.SerializedCollections;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "New RPGSpeaker", menuName = "Project/RPGSpeaker")]
 public class RPGSpeaker : DialogueSpeaker

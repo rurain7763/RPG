@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 [Serializable]
@@ -39,7 +40,7 @@ public abstract class RPGSkill : Skill
 
     public void AddUpgrade<T>(T upgrade) where T : unmanaged, Enum
     {
-        uint v = Unsafe.As<T, uint>(ref upgrade);
+        uint v = UnsafeUtility.As<T, uint>(ref upgrade);
         if (upgradeFlags.Has(v))
         {
             return;
@@ -51,7 +52,7 @@ public abstract class RPGSkill : Skill
 
     public void RemoveUpgrade<T>(T upgrade) where T : unmanaged, Enum
     {
-        uint v = Unsafe.As<T, uint>(ref upgrade);
+        uint v = UnsafeUtility.As<T, uint>(ref upgrade);
         if (!upgradeFlags.Has(v))
         {
             return;
@@ -63,7 +64,7 @@ public abstract class RPGSkill : Skill
 
     public bool HasUpgrade<T>(T upgrade) where T : unmanaged, Enum
     {
-        return upgradeFlags.Has(Unsafe.As<T, uint>(ref upgrade));
+        return upgradeFlags.Has(UnsafeUtility.As<T, uint>(ref upgrade));
     }
 }
 

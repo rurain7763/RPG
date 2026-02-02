@@ -1,5 +1,5 @@
 ﻿using System;
-using TypeReferences;
+using UnityEngine;
 
 [Serializable]
 public class TalkToNPCQuestStepData : QuestStepData
@@ -14,7 +14,7 @@ public class TalkToNPCQuestStepData : QuestStepData
 [Serializable]
 public class KillEnemyQuestStepData : QuestStepData
 {
-    [Inherits(typeof(Entity))] public TypeReference EnemyType;
+    [TypeConstraint(typeof(Entity))] public SerializedType EnemyType;
     public int RequiredKillCount;
 
     public override QuestStep CreateStep()

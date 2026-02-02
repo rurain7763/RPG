@@ -17,6 +17,7 @@ MonoBehaviour:
   alias: Bob
   displayName: Bob
   portraits:
-    _serializedList:
-    - Key: 0
-      Value: {fileID: -2128185250591344747, guid: 5ffe8d75d1ad740418e8f479f7f55aba, type: 3}
+    pairs:
+    - key: 0
+      value: {fileID: 2363076987334289773, guid: 5ffe8d75d1ad740418e8f479f7f55aba, type: 3}
+    error: 0

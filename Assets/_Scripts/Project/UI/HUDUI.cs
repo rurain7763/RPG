@@ -1,9 +1,14 @@
 using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HUDUI : StaticUI
 {
+    [SerializeField, Reference("Text_Level")] private TMP_Text levelText;
     [SerializeField, Reference("Hpbar")] private HpBar hpBar;
+    [SerializeField, Reference("Expbar")] private Slider expBar;
+    [SerializeField, Reference("Expbar/Text_Value")] private TMP_Text expBarTextValue;
     [SerializeField, Reference()] private QuickItemEquipSlotDisplayer[] quickItemEquipSlotDisplayers;
     [SerializeField, Reference()] private SkillEquipSlotDisplayer[] skillEquipSlotDisplayers;
     [SerializeField, Reference("EnemyHpDisplayers")] EnemyHpDisplayer[] enemyHpDisplayers;
@@ -28,6 +33,7 @@ public class HUDUI : StaticUI
         if (player != null)
         {
             player.CombatSystem.OnHealthChanged -= UpdateHpBar;
+            player.PlayLevelSystem.OnExpChanged -= HandleExpChanged;
         }
     }
 
@@ -36,6 +42,7 @@ public class HUDUI : StaticUI
         this.player = player;
 
         player.CombatSystem.OnHealthChanged += UpdateHpBar;
+        player.PlayLevelSystem.OnExpChanged += HandleExpChanged;
 
         foreach (var quickItemEquipSlotDisplayer in quickItemEquipSlotDisplayers)
         {
@@ -47,12 +54,37 @@ public class HUDUI : StaticUI
             skillEquipSlotDisplayer.Setup(player.SkillSystem);
         }
 
+        UpdateLevelText();
         UpdateHpBar();
+        UpdateExpBar();
+    }
+
+    private void UpdateLevelText()
+    {
+        levelText.text = $"Lv. {player.PlayLevelSystem.CurrentLevel}";
     }
 
     private void UpdateHpBar()
     {
         hpBar.SetHp(player.CombatSystem.CurrentHealth, player.CombatSystem.MaxHealth);
+    }
+
+    private void UpdateExpBar()
+    {
+        if (player.PlayLevelSystem.CurrentLevel >= RPG.MaxPlayerLevel)
+        {
+            expBar.value = 1f;
+            return;
+        }
+
+        expBar.value = (float)player.PlayLevelSystem.CurrentExp / player.PlayLevelSystem.ExpToReachNextLevel;
+        expBarTextValue.text = $"{player.PlayLevelSystem.CurrentExp} / {player.PlayLevelSystem.ExpToReachNextLevel}";
+    }
+
+    private void HandleExpChanged()
+    {
+        UpdateLevelText();
+        UpdateExpBar();
     }
 
     public void RegisterHpDisplayer(string name, ICombatable combatable)

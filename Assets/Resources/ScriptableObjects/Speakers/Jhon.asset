@@ -17,6 +17,7 @@ MonoBehaviour:
   alias: Jhon
   displayName: Jhon
   portraits:
-    _serializedList:
-    - Key: 0
-      Value: {fileID: -3741002040469782287, guid: 5ffe8d75d1ad740418e8f479f7f55aba, type: 3}
+    pairs:
+    - key: 0
+      value: {fileID: 3843447133471380455, guid: 5ffe8d75d1ad740418e8f479f7f55aba, type: 3}
+    error: 0

@@ -20,7 +20,27 @@ public class DeathUI : PopupUI
         this.currentLevel = currentLevel;
         this.player = player;
 
-        goToCheckpoint.interactable = RPG.HasLastCheckpointInLevel(currentLevel, player);
+        goToCheckpoint.interactable = GetLastCheckpointInLevel(currentLevel, player) != null;
+    }
+
+    private Checkpoint GetLastCheckpointInLevel(RPGLevel level, Player player)
+    {
+        var playDataTable = RPG.UserDataSys.GetTable<UserPlayDataTable>(player.UserID);
+        if (playDataTable == null)
+        {
+            Logger.Warn($"Failed to retrieve UserPlayDataTable for user ID {player.UserID}");
+            return null;
+        }
+
+        foreach (var checkpoint in level.GetComponentsInChildren<Checkpoint>())
+        {
+            if (checkpoint.CheckpointID == playDataTable.Checkpoint.LastCheckpointID)
+            {
+                return checkpoint;
+            }
+        }
+
+        return null;
     }
 
     private void OnClickGoToTownButton()
@@ -31,7 +51,8 @@ public class DeathUI : PopupUI
 
     private void OnClickGoToCheckpointButton()
     {
-        RPG.TeleportPlayerToLastCheckpoint(currentLevel, player);
+        var lastCheckpoint = GetLastCheckpointInLevel(currentLevel, player);
+        player.transform.position = lastCheckpoint.transform.position;
         CloseThis();
     }
 }

@@ -5,6 +5,17 @@ public class InGameController : MonoBehaviour
     private void Start()
     {
         var progresss = RPG.UserDataSys.PlayData.Progress;
-        RPG.LoadLevel(progresss.LastLevelID, new SpecificPositionSpawnPolicy(progresss.LastPosition));
+
+        ISpawnPolicy spawnPolicy = null;
+        if (progresss.HasLastPosition)
+        {
+            spawnPolicy = new SpecificPositionSpawnPolicy(progresss.LastPosition);
+        }
+        else
+        {
+            spawnPolicy = new StartPositionSpawnPolicy();
+        }
+
+        RPG.LoadLevel(progresss.LastLevelID, spawnPolicy);
     }
 }

@@ -74,11 +74,36 @@ public interface ISpawnPolicy
     void Apply(RPGLevel level, Player player);
 }
 
+public class StartPositionSpawnPolicy : ISpawnPolicy
+{
+    public void Apply(RPGLevel level, Player player)
+    {
+        player.transform.position = level.PlayerStartPosition;
+    }
+}
+
 public class CheckpointSpawnPolicy : ISpawnPolicy
 {
     public void Apply(RPGLevel level, Player player)
     {
-        RPG.TeleportPlayerToLastCheckpoint(level, player);
+        var playDataTable = RPG.UserDataSys.GetTable<UserPlayDataTable>(player.UserID);
+        if (playDataTable == null)
+        {
+            Logger.Warn($"Failed to retrieve UserPlayDataTable for user ID {player.UserID}");
+            return;
+        }
+
+        foreach (var checkpoint in level.GetComponentsInChildren<Checkpoint>())
+        {
+            if (checkpoint.CheckpointID == playDataTable.Checkpoint.LastCheckpointID)
+            {
+                player.transform.position = checkpoint.transform.position;
+                return; 
+            }
+        }
+
+        Logger.Warn("No last checkpoint found in the level for CheckpointSpawnPolicy.");
+        player.transform.position = level.PlayerStartPosition;
     }
 }
 
@@ -86,7 +111,16 @@ public class PortalSpawnPolicy : ISpawnPolicy
 {
     public void Apply(RPGLevel level, Player player)
     {
-        RPG.TeleportPlayerToPortal(player);
+        var allPortals = level.GetComponentsInChildren<Portal>();
+        if (allPortals.Length > 0)
+        {
+            player.transform.position = allPortals[0].transform.position;
+        }
+        else
+        {
+            Logger.Warn("No portals found in the level for PortalSpawnPolicy.");
+            player.transform.position = level.PlayerStartPosition;
+        }
     }
 }
 
