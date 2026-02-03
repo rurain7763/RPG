@@ -6,8 +6,9 @@ public struct ParallaxLayer2D
 {
     public Transform layerTransform;
     public BoxCollider2D layerCollider;
-    [Range(0f, 1f)] public float parallaxFactor;
+    [Range(0f, 1f)] public float parallaxFactorX;
     public bool constrainXPosition;
+    [Range(0f, 1f)] public float parallaxFactorY;
     public bool constrainYPosition;
 }
 
@@ -48,7 +49,7 @@ public class ParallaxBackground2D : MonoBehaviour
         Vector3 deltaMovement = followTarget.position - previousTargetPosition;
         foreach (var layer in parallaxLayers)
         {
-            Vector3 newLayerPosition = layer.layerTransform.position + deltaMovement * layer.parallaxFactor;
+            Vector3 newLayerPosition = layer.layerTransform.position + new Vector3(deltaMovement.x * layer.parallaxFactorX, deltaMovement.y * layer.parallaxFactorY, 0f);
             if (layer.constrainXPosition)
             {
                 newLayerPosition.x = layer.layerTransform.position.x;
